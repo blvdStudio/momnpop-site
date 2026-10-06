@@ -1,0 +1,807 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="description" content="Mom&amp;Pop – catering frais et de saison partout en Belgique : webshop, événements d'entreprise et privés.">
+<title>Mom&amp;Pop Catering</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600&family=Instrument+Serif:ital@0;1&display=swap">
+<style>
+/* Layout: Growix-style rounded image hero + stacked rounded sections; Mom&Pop's six logo colours used as solid tiles, one colour per role */
+:root{
+  --bg:#F1EFE8; --surface:#FAF9F5; --ink:#1F3A2A; --muted:#6B6D66; --line:#E0DDD2;
+  --green:#24432F; --red:#2F5A3E; --orange:#24432F; --navy:#24432F;
+  --blue:#E2E0D5; --lilac:#D9D7CB; --yellow:#C8DC4C;
+  --fixed:#1F3A2A;
+  --display:"Instrument Sans", "Helvetica Neue", Arial, sans-serif;
+  --serif:"Instrument Serif", Georgia, "Times New Roman", serif;
+  --body:"Instrument Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --r-lg:24px; --r-md:16px; --r-pill:999px;
+  --wrap:1240px;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --bg:#121A15; --surface:#1A251E; --ink:#ECEAE1; --muted:#A3A69C; --line:#2A372E;
+  --green:#2E5A3D; --red:#3A6B4A; --orange:#2E5A3D; --navy:#2E5A3D; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#121A15; --surface:#1A251E; --ink:#ECEAE1; --muted:#A3A69C; --line:#2A372E;
+  --green:#2E5A3D; --red:#3A6B4A; --orange:#2E5A3D; --navy:#2E5A3D; color-scheme:dark}
+
+*{box-sizing:border-box}
+[hidden]{display:none!important}
+img{max-width:100%}
+html{scroll-behavior:smooth}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{transition:none!important;animation:none!important}}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--body);font-size:17px;line-height:1.6;padding-inline:16px;padding-block:12px 0}
+.wrap{max-width:var(--wrap);margin-inline:auto}
+h1,h2,h3,h4{font-family:var(--display);font-weight:500;line-height:1.06;letter-spacing:-.03em;margin:0;text-wrap:balance}
+h2{font-size:clamp(36px,5vw,62px);font-weight:500}
+.it{font-family:var(--serif);font-style:italic;font-weight:400;letter-spacing:-.01em}
+h3{font-size:24px;font-weight:500}
+p{margin:0}
+a{color:inherit}
+:focus-visible{outline:3px solid var(--yellow);outline-offset:3px;border-radius:6px}
+.eyebrow{display:inline-flex;align-items:center;gap:10px;font-size:17px;font-weight:500;color:var(--ink)}
+.eyebrow::before{content:"";width:24px;height:20px;background:var(--leaf,var(--green));-webkit-mask:var(--leafsvg) center/contain no-repeat;mask:var(--leafsvg) center/contain no-repeat}
+:root{--leafsvg:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 20'%3E%3Cpath d='M23 1C14 0 8 4 7.5 11c-.1 1.6.2 3 .8 4.2C10 10.6 14 7.3 18 5.6c-3.7 2.3-7 5.7-8.6 10C16 17 22 11 23 1z'/%3E%3Cpath d='M1 6c5-1 8.5 1.5 8.8 5.6.1 1-.1 1.9-.5 2.7C8.3 11.4 6 9.4 3.6 8.4c2.1 1.5 4 3.6 4.9 6.3C3.4 15.4.4 11.7 1 6z'/%3E%3C/svg%3E")}
+.btn{display:inline-flex;align-items:center;gap:10px;font:600 16px/1 var(--body);padding:16px 24px;border-radius:var(--r-pill);border:0;cursor:pointer;text-decoration:none;transition:transform .2s ease, background .2s}
+.btn:hover{transform:translateY(-2px)}
+.btn-dark{background:var(--yellow);color:#1F3A2A}
+.btn-yellow{background:var(--yellow);color:#1F3A2A}
+.btn-ghost{background:transparent;color:var(--ink);box-shadow:inset 0 0 0 1.5px var(--line)}
+.btn .arr{width:26px;height:26px;border-radius:50%;display:grid;place-items:center;background:#1F3A2A;color:#C8DC4C;font-size:14px}
+section{padding-block:clamp(64px,9vw,120px)}
+.sec-head{display:grid;gap:18px;margin-bottom:48px;max-width:760px}
+.sec-head p{color:var(--muted);font-size:18px;max-width:58ch}
+
+/* NAV */
+.nav{position:sticky;top:env(safe-area-inset-top,0px);z-index:20;padding-block:8px}
+.nav-in{display:flex;align-items:center;justify-content:space-between;gap:16px;background:color-mix(in srgb,var(--surface) 88%,transparent);backdrop-filter:blur(14px);border:1px solid var(--line);border-radius:var(--r-pill);padding:8px 8px 8px 12px}
+.brand{display:flex;align-items:center;gap:10px;text-decoration:none;font-family:var(--display);font-weight:500;font-size:20px}
+.brand svg{width:44px;height:44px}
+.links{display:flex;gap:4px;list-style:none;margin:0;padding:0}
+.links a{display:block;padding:10px 16px;border-radius:var(--r-pill);text-decoration:none;font-weight:500;font-size:15px}
+.links a:hover{background:var(--bg)}
+.cart-btn{position:relative}
+.cart-count{position:absolute;top:-4px;right:-4px;min-width:22px;height:22px;border-radius:11px;background:#1F3A2A;color:#fff;font-size:12px;display:grid;place-items:center;padding:0 6px;font-variant-numeric:tabular-nums}
+@media (max-width:860px){.links{display:none}}
+
+/* HERO */
+.hero{position:relative;border-radius:var(--r-lg);overflow:hidden;min-height:clamp(560px,78vh,760px);display:flex;align-items:flex-end;margin-top:8px;color:#fff;isolation:isolate}
+.hero img.bg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:-2;transform:scale(1.04);animation:settle 1.6s cubic-bezier(.2,.7,.2,1) forwards}
+@keyframes settle{to{transform:scale(1)}}
+.hero::after{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(180deg,rgba(18,30,22,.05) 30%,rgba(18,30,22,.74) 100%)}
+.hero-in{width:100%;display:grid;grid-template-columns:1.4fr 1fr;gap:32px;align-items:end;padding:clamp(24px,4vw,56px)}
+.hero h1{font-size:clamp(46px,7.4vw,100px);font-weight:500;letter-spacing:-.04em}
+.hero h1 em{font-family:var(--serif);font-style:italic;font-weight:400;color:#fff}
+.hero-side{display:grid;gap:22px;justify-items:start}
+.hero-side p{font-size:18px;opacity:.92;max-width:40ch}
+.hero-badges{display:flex;gap:10px;flex-wrap:wrap}
+.chip{display:inline-flex;align-items:center;gap:8px;padding:10px 16px;border-radius:var(--r-pill);background:rgba(255,255,255,.16);backdrop-filter:blur(10px);font-size:14px;font-weight:600;border:1px solid rgba(255,255,255,.25)}
+.chip b{font-family:var(--display);font-size:18px}
+.hero-card{position:absolute;top:clamp(20px,3vw,36px);right:clamp(20px,3vw,36px);background:var(--surface);color:var(--ink);border-radius:var(--r-md);padding:14px 16px 14px 14px;display:flex;gap:12px;align-items:center;max-width:300px;box-shadow:0 20px 40px -20px rgba(0,0,0,.4)}
+.hero-card .sw{width:52px;height:52px;border-radius:14px;background:var(--green);display:grid;place-items:center;flex:none;color:#fff;font-family:var(--display);font-weight:500;font-size:13px;text-align:center;line-height:1}
+.hero-card small{color:var(--muted);font-size:12px;text-transform:uppercase;letter-spacing:.1em;font-weight:600}
+.hero-card strong{display:block;font-size:15px;line-height:1.3}
+@media (max-width:860px){.hero-in{grid-template-columns:1fr}.hero-card{display:none}}
+
+/* MARQUEE */
+.ticker{overflow:hidden;padding-block:28px;border-bottom:1px solid var(--line)}
+.ticker-track{display:flex;gap:48px;width:max-content;animation:tick 32s linear infinite}
+.ticker span{font-family:var(--serif);font-style:italic;font-weight:400;font-size:clamp(26px,3.4vw,44px);white-space:nowrap;display:flex;align-items:center;gap:48px}
+.ticker span::after{content:"";width:18px;height:18px;border-radius:50%;background:var(--c)}
+@keyframes tick{to{transform:translateX(-50%)}}
+
+/* ABOUT */
+.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:clamp(32px,5vw,80px);align-items:start}
+.about-lead{display:grid;gap:22px}
+.about-lead .big{font-family:var(--display);font-size:clamp(24px,2.6vw,32px);line-height:1.25;font-weight:500;letter-spacing:-.01em}
+.about-lead .big b{font-weight:500}
+.about-lead p{color:var(--muted);max-width:56ch}
+.yummy{font-family:var(--serif);font-style:italic;font-size:1.15em;color:var(--ink)}
+.about-visual{position:relative;border-radius:var(--r-lg);overflow:hidden;aspect-ratio:4/5;max-width:100%}
+.about-visual img{width:100%;height:100%;object-fit:cover;object-position:60% center}
+.about-visual .stat{position:absolute;left:18px;bottom:18px;right:18px;background:var(--surface);color:var(--ink);border-radius:var(--r-md);padding:20px;display:flex;align-items:center;gap:18px}
+.stat .num{font-family:var(--serif);font-weight:400;font-size:64px;line-height:.9;color:var(--green);font-variant-numeric:tabular-nums}
+.stat p{font-size:15px;color:var(--muted);line-height:1.4}
+.stat p b{color:var(--ink);display:block;font-size:17px}
+.pillars{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:clamp(48px,6vw,80px)}
+.pillar{border-radius:var(--r-lg);padding:32px;display:grid;gap:14px;align-content:start;min-width:0}
+.pillar .ico{width:56px;height:56px;border-radius:50%;background:rgba(255,255,255,.55);display:grid;place-items:center}
+.pillar .ico svg{width:28px;height:28px}
+.pillar p{font-size:16px;line-height:1.6}
+.p-green{background:var(--green);color:#fff}
+.p-green .ico{background:rgba(255,255,255,.18)}
+.p-lilac{background:var(--surface);color:var(--ink);border:1px solid var(--line)}
+.p-blue{background:var(--blue);color:#1F3A2A}
+.tags{display:flex;gap:8px;flex-wrap:wrap}
+.tag{font-size:13px;font-weight:500;padding:6px 12px;border-radius:var(--r-pill);background:var(--bg);color:var(--ink);border:1px solid var(--line)}
+@media (max-width:960px){.about-grid,.pillars{grid-template-columns:1fr}.about-visual{aspect-ratio:4/3}}
+
+/* WEBSHOP */
+.shop{background:var(--surface);border-radius:var(--r-lg);padding-inline:clamp(20px,4vw,56px)}
+.shop-top{display:flex;justify-content:space-between;align-items:end;gap:24px;flex-wrap:wrap;margin-bottom:36px}
+.shop-top .sec-head{margin:0}
+.filters{display:flex;gap:8px;flex-wrap:wrap}
+.filter{font:600 14px var(--body);padding:10px 18px;border-radius:var(--r-pill);border:1.5px solid var(--line);background:transparent;color:var(--ink);cursor:pointer}
+.filter[aria-pressed="true"]{background:var(--green);color:#fff;border-color:var(--green)}
+.products{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
+.product{display:grid;grid-template-rows:auto 1fr;border-radius:var(--r-md);background:var(--bg);overflow:hidden;min-width:0;transition:transform .25s}
+.product:hover{transform:translateY(-4px)}
+.p-art{aspect-ratio:1/1;position:relative;display:grid;place-items:center;background:var(--c);overflow:hidden}
+.p-art.light{--tc:#1F3A2A}
+.p-art.light .blob{background:rgba(255,255,255,.55)}
+.p-art .blob{width:62%;aspect-ratio:1;border-radius:46% 54% 42% 58%/55% 44% 56% 45%;background:rgba(255,255,255,.28);display:grid;place-items:center;transition:border-radius .6s, transform .6s}
+.product:hover .blob{border-radius:56% 44% 58% 42%/45% 56% 44% 55%;transform:rotate(-6deg) scale(1.04)}
+.p-art .blob span{font-family:var(--serif);font-style:italic;font-weight:400;font-size:clamp(28px,2.6vw,36px);color:var(--tc,#fff);text-align:center;line-height:1;letter-spacing:-.02em}
+.p-art .diet{position:absolute;top:12px;left:12px;display:flex;gap:6px}
+.p-art .diet i{font-style:normal;font-size:11px;font-weight:500;letter-spacing:.06em;padding:4px 8px;border-radius:var(--r-pill);background:rgba(255,255,255,.88);color:var(--fixed)}
+.p-body{padding:18px;display:grid;gap:10px;align-content:space-between}
+.p-body h3{font-size:19px}
+.p-body p{font-size:14px;color:var(--muted);line-height:1.5}
+.p-foot{display:flex;justify-content:space-between;align-items:center;gap:10px;margin-top:6px}
+.price{font-family:var(--display);font-weight:500;font-size:20px;font-variant-numeric:tabular-nums}
+.price small{font-family:var(--body);font-size:12px;color:var(--muted);font-weight:500}
+.add{width:44px;height:44px;border-radius:50%;border:0;background:var(--yellow);color:#1F3A2A;font-size:22px;cursor:pointer;transition:background .2s, transform .2s;flex:none}
+.add:hover{transform:rotate(90deg)}
+.add.done{background:var(--green);color:#fff}
+.shop-note{margin-top:28px;display:flex;gap:16px;flex-wrap:wrap;justify-content:space-between;align-items:center;padding:20px 24px;border-radius:var(--r-md);background:var(--bg);font-size:15px;color:var(--muted)}
+.shop-note b{color:var(--ink)}
+@media (max-width:1060px){.products{grid-template-columns:repeat(2,1fr)}}
+@media (max-width:520px){.products{grid-template-columns:1fr}}
+
+/* EVENTS */
+.ev-hero{display:grid;grid-template-columns:1.1fr 1fr;gap:clamp(32px,5vw,72px);align-items:end;margin-bottom:48px}
+.ev-hero .sec-head{margin:0}
+.ev-tabs{display:inline-flex;background:var(--surface);border:1px solid var(--line);border-radius:var(--r-pill);padding:6px;gap:4px}
+.ev-tab{font:600 15px var(--body);padding:12px 22px;border-radius:var(--r-pill);border:0;background:transparent;color:var(--ink);cursor:pointer}
+.ev-tab[aria-selected="true"]{background:var(--green);color:#fff}
+.ev-panel{display:grid;grid-template-columns:1fr 1.3fr;gap:18px}
+.ev-feature{border-radius:var(--r-lg);padding:clamp(28px,3.5vw,44px);display:grid;gap:22px;align-content:space-between;min-height:420px;color:#fff;background:var(--navy);position:relative;overflow:hidden}
+.ev-feature.private{background:var(--red)}
+.ev-feature::after{content:"";position:absolute;right:-80px;bottom:-80px;width:260px;height:260px;border-radius:50%;background:rgba(200,220,76,.22);opacity:1}
+
+.ev-feature > *{position:relative;z-index:1}
+.ev-feature h3{font-size:clamp(30px,3.2vw,42px);font-weight:500}
+.ev-feature p{opacity:.9;max-width:42ch}
+.occasions{display:flex;flex-wrap:wrap;gap:8px;max-width:80%}
+.occasions span{padding:8px 14px;border-radius:var(--r-pill);background:rgba(255,255,255,.16);border:1px solid rgba(255,255,255,.28);font-size:14px;font-weight:600}
+.formats{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+.format{background:var(--surface);border:1px solid var(--line);border-radius:var(--r-md);padding:24px;display:grid;gap:10px;align-content:start;min-width:0}
+.format .top{display:flex;justify-content:space-between;align-items:center;gap:12px}
+.format .sw{width:40px;height:40px;border-radius:12px;background:var(--bg);position:relative}
+.format .sw::after{content:"";position:absolute;inset:10px;background:var(--green);-webkit-mask:var(--leafsvg) center/contain no-repeat;mask:var(--leafsvg) center/contain no-repeat}
+.format .pp{font-size:13px;font-weight:600;color:var(--muted);font-variant-numeric:tabular-nums;white-space:nowrap}
+.format h4{font-size:20px;font-weight:500}
+.format p{font-size:15px;color:var(--muted);line-height:1.5}
+@media (max-width:960px){.ev-hero,.ev-panel{grid-template-columns:1fr}}
+@media (max-width:560px){.formats{grid-template-columns:1fr}}
+
+.process{margin-top:clamp(56px,7vw,96px);display:grid;grid-template-columns:1fr 2fr;gap:clamp(32px,5vw,72px)}
+.process .sec-head{margin:0;align-content:start}
+.steps{display:grid;grid-template-columns:repeat(2,1fr);gap:18px;counter-reset:s}
+.step{border-top:1px solid var(--line);padding-top:20px;display:grid;gap:8px;counter-increment:s;min-width:0}
+.step::before{content:counter(s,decimal-leading-zero);font-family:var(--serif);font-style:italic;font-size:48px;line-height:1;color:var(--green)}
+.step h4{font-size:21px}
+.step p{color:var(--muted);font-size:15px}
+@media (max-width:960px){.process{grid-template-columns:1fr}}
+@media (max-width:520px){.steps{grid-template-columns:1fr}}
+
+.included{margin-top:clamp(48px,6vw,80px);border-radius:var(--r-lg);background:var(--green);color:#fff;padding:clamp(28px,4vw,52px);display:grid;grid-template-columns:1fr 1.4fr;gap:32px;align-items:center}
+.included h3{font-size:clamp(28px,3vw,40px);font-weight:500}
+.inc-list{display:grid;grid-template-columns:1fr 1fr;gap:12px 28px;list-style:none;padding:0;margin:0}
+.inc-list li{display:flex;gap:12px;align-items:flex-start;font-weight:500}
+.inc-list li::before{content:"";flex:none;width:22px;height:22px;margin-top:2px;border-radius:50%;background:#C8DC4C url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%231F3A2A' stroke-width='3.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M6 12l4 4 8-8'/%3E%3C/svg%3E") center/14px no-repeat}
+@media (max-width:860px){.included{grid-template-columns:1fr}.inc-list{grid-template-columns:1fr}}
+
+/* FAQ */
+.faq-grid{display:grid;grid-template-columns:1fr 1.5fr;gap:clamp(32px,5vw,72px)}
+.faq-grid .sec-head{margin:0;align-content:start}
+.faq details{border-bottom:1px solid var(--line);padding-block:22px}
+.faq summary{cursor:pointer;list-style:none;display:flex;justify-content:space-between;gap:20px;font-family:var(--display);font-weight:500;font-size:20px;line-height:1.3}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary::after{content:"+";flex:none;width:34px;height:34px;border-radius:50%;background:var(--surface);border:1px solid var(--line);display:grid;place-items:center;font-family:var(--body);font-weight:500;transition:transform .25s}
+.faq details[open] summary::after{transform:rotate(45deg);background:var(--yellow);color:var(--fixed);border-color:var(--yellow)}
+.faq details p{margin-top:12px;color:var(--muted);max-width:60ch}
+@media (max-width:860px){.faq-grid{grid-template-columns:1fr}}
+
+/* CONTACT */
+.contact{display:grid;grid-template-columns:1fr 1.2fr;gap:18px}
+.c-info{border-radius:var(--r-lg);overflow:hidden;position:relative;color:#fff;padding:clamp(28px,4vw,48px);display:grid;align-content:space-between;gap:36px;min-height:560px;isolation:isolate}
+.c-info img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:-2}
+.c-info::after{content:"";position:absolute;inset:0;background:rgba(20,36,26,.62);z-index:-1}
+.c-info h2{font-size:clamp(34px,4.4vw,54px)}
+.c-rows{display:grid;gap:16px}
+.c-row{display:grid;gap:2px;padding-top:14px;border-top:1px solid rgba(255,255,255,.28)}
+.c-row small{font-size:12px;letter-spacing:.12em;text-transform:uppercase;opacity:.75;font-weight:600}
+.c-row span{font-size:18px;font-weight:600;user-select:all}
+.hours{display:grid;grid-template-columns:auto auto;justify-content:space-between;gap:4px 24px;font-variant-numeric:tabular-nums;font-size:15px}
+form.c-form{background:var(--surface);border:1px solid var(--line);border-radius:var(--r-lg);padding:clamp(24px,4vw,48px);display:grid;gap:18px;align-content:start}
+.c-form h3{font-size:28px}
+.c-form .row2{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.field{display:grid;gap:6px;min-width:0}
+.field label{font-size:13px;font-weight:600;color:var(--muted)}
+.field input,.field select,.field textarea{font:500 16px var(--body);color:var(--ink);background:var(--bg);border:1.5px solid var(--line);border-radius:14px;padding:14px 16px;width:100%}
+.field input:focus,.field select:focus,.field textarea:focus{outline:none;border-color:var(--navy)}
+.field textarea{min-height:120px;resize:vertical}
+.subject{display:flex;gap:8px;flex-wrap:wrap}
+.subject input{position:absolute;opacity:0;pointer-events:none}
+.subject label{font:600 14px var(--body);padding:10px 16px;border-radius:var(--r-pill);border:1.5px solid var(--line);cursor:pointer;color:var(--ink)}
+.subject input:checked + label{background:var(--green);color:#fff;border-color:var(--green)}
+.subject input:focus-visible + label{outline:3px solid var(--yellow);outline-offset:2px}
+.form-ok{padding:14px 18px;border-radius:14px;background:color-mix(in srgb,var(--green) 16%,transparent);color:var(--ink);font-weight:500}
+@media (max-width:960px){.contact{grid-template-columns:1fr}.c-info{min-height:auto}}
+@media (max-width:520px){.c-form .row2{grid-template-columns:1fr}}
+
+/* CTA + FOOTER */
+.cta{border-radius:var(--r-lg);background:var(--green);color:#fff;padding:clamp(36px,6vw,80px);display:grid;grid-template-columns:1fr auto;gap:32px;align-items:center;position:relative;overflow:hidden}
+.cta h2{max-width:14ch}
+.cta svg.mark{position:absolute;right:-60px;top:-60px;width:300px;height:300px;opacity:.08;filter:grayscale(1) brightness(4)}
+@media (max-width:760px){.cta{grid-template-columns:1fr}}
+footer{padding-block:64px 32px;display:grid;gap:40px}
+.f-top{display:grid;grid-template-columns:1.4fr repeat(3,1fr);gap:32px}
+.f-top .brand svg{width:72px;height:72px}
+.f-top p{color:var(--muted);font-size:15px;max-width:34ch;margin-top:14px}
+.f-col{display:grid;gap:8px;align-content:start;font-size:15px}
+.f-col b{font-family:var(--display);font-size:16px;margin-bottom:6px}
+.f-col a{text-decoration:none;color:var(--muted)}
+.f-col a:hover{color:var(--ink)}
+.f-bot{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;border-top:1px solid var(--line);padding-top:24px;font-size:14px;color:var(--muted)}
+@media (max-width:860px){.f-top{grid-template-columns:1fr 1fr}}
+
+.toast{position:fixed;left:50%;bottom:calc(24px + env(safe-area-inset-bottom,0px));transform:translate(-50%,calc(100% + 60px));background:var(--ink);color:var(--bg);padding:14px 22px;border-radius:var(--r-pill);font-weight:600;font-size:15px;transition:transform .35s cubic-bezier(.2,.8,.2,1);z-index:40;max-width:calc(100% - 32px)}
+.toast.show{transform:translate(-50%,0)}
+
+/* full-bleed hero with nav overlaid */
+.hero-bleed{margin-inline:-16px;margin-top:-12px}
+.hero{border-radius:0!important;margin-top:0!important;min-height:100svh!important}
+.hero-in{max-width:var(--wrap);margin-inline:auto;padding-top:140px!important}
+.hero-card{top:calc(110px + env(safe-area-inset-top,0px))!important}
+.nav{position:fixed!important;left:0;right:0;top:0!important;padding:calc(14px + env(safe-area-inset-top,0px)) 16px 0!important;transition:padding .3s}
+.nav-in{background:transparent!important;border-color:transparent!important;backdrop-filter:none!important;transition:background .3s,border-color .3s}
+.nav:not(.scrolled) .links a{color:#fff}
+.nav:not(.scrolled) .links a:hover{background:rgba(255,255,255,.14)}
+.nav.scrolled{padding-top:calc(8px + env(safe-area-inset-top,0px))!important}
+.nav.scrolled .nav-in{background:color-mix(in srgb,var(--surface) 90%,transparent)!important;border-color:var(--line)!important;backdrop-filter:blur(14px)!important}
+.nav:not(.scrolled) .brand svg{background:rgba(255,255,255,.92);border-radius:50%;padding:3px}
+
+/* section bands: alternate full-bleed grounds so each section reads as its own block */
+:root{--sage:#E2E6D9;--white:#FFFFFF;--deep:#1F3A2A}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){--sage:#18231C;--white:#1A251E;--deep:#0C140F}}
+:root[data-theme="dark"]{--sage:#18231C;--white:#1A251E;--deep:#0C140F}
+.band{margin-inline:-16px;padding-inline:16px;padding-block:clamp(80px,10vw,136px)!important;position:relative}
+.band-beige{background:var(--bg)}
+.band-white{background:var(--white);border-block:1px solid var(--line)}
+.band-sage{background:var(--sage)}
+.band-dark{background:var(--deep);color:#ECEAE1}
+.shop.band{border-radius:0}
+.band-white .product{background:var(--bg)}
+.band-white .shop-note{background:var(--bg)}
+.band-sage .ev-tabs{background:var(--white)}
+.band-sage .format{background:var(--white)}
+.band-dark .eyebrow{color:#ECEAE1;--leaf:var(--yellow)}
+.band-dark h2{color:#fff}
+.band-dark .sec-head p,.band-dark .faq details p{color:rgba(236,234,225,.72)}
+.band-dark .faq details{border-color:rgba(255,255,255,.14)}
+.band-dark .faq summary{color:#fff}
+.band-dark .faq summary::after{background:transparent;border-color:rgba(255,255,255,.3);color:#fff}
+.band-dark .faq details[open] summary::after{background:var(--yellow);border-color:var(--yellow);color:#1F3A2A}
+.band-dark .btn-dark{background:var(--yellow)}
+#contact.band{padding-bottom:clamp(40px,5vw,64px)!important}
+
+/* option B: mono logo, white on the cover, green once scrolled */
+.nav .brand svg{width:66px!important;height:66px!important;background:none!important;padding:0!important;transition:width .35s ease,height .35s ease}
+.nav .brand svg path{fill:#fff;transition:fill .35s ease}
+.nav.scrolled .brand svg{width:50px!important;height:50px!important}
+.nav.scrolled .brand svg path{fill:var(--ink)}
+
+@media (max-width:860px){.nav .brand svg{width:54px!important;height:54px!important}}
+
+/* language switch */
+.nav-r{display:flex;align-items:center;gap:10px}
+.lang{display:inline-flex;gap:2px;padding:4px;border-radius:var(--r-pill);border:1px solid rgba(255,255,255,.35)}
+.lang button{font:600 13px var(--body);letter-spacing:.04em;padding:8px 11px;border-radius:var(--r-pill);border:0;background:transparent;color:#fff;cursor:pointer}
+.lang button[aria-pressed="true"]{background:#fff;color:#1F3A2A}
+.nav.scrolled .lang{border-color:var(--line)}
+.nav.scrolled .lang button{color:var(--ink)}
+.nav.scrolled .lang button[aria-pressed="true"]{background:var(--green);color:#fff}
+@media (max-width:520px){.cart-btn .cart-lbl{display:none}.cart-btn{padding:14px 18px}}
+.p-photo{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform .6s ease}
+.product:hover .p-photo{transform:scale(1.05)}
+.p-art .diet{z-index:1}
+
+/* corporate event card: photo background with green overlay */
+.ev-feature.corp{background:#1F3A2A url(event-corp.jpg) center 30%/cover no-repeat}
+.ev-feature.corp::after{content:"";right:auto;bottom:auto;inset:0;width:auto;height:auto;border-radius:0;opacity:1;background:linear-gradient(180deg,rgba(20,36,26,.72) 0%,rgba(20,36,26,.5) 50%,rgba(20,36,26,.85) 100%);z-index:0}
+.ev-feature.private.photo{background:#1F3A2A url(event-private.jpg) center 40%/cover no-repeat}
+.ev-feature.private.photo::after{content:"";right:auto;bottom:auto;inset:0;width:auto;height:auto;border-radius:0;opacity:1;background:linear-gradient(180deg,rgba(20,36,26,.72) 0%,rgba(20,36,26,.5) 50%,rgba(20,36,26,.85) 100%);z-index:0}
+
+/* test: large colour logo centred on the cover; nav logo appears once scrolled */
+.hero-left{display:grid;gap:clamp(20px,3vw,36px);justify-items:start;min-width:0}
+.hero-logo{pointer-events:none;line-height:0}
+.hero-logo svg{width:clamp(110px,13vw,170px);height:auto;filter:drop-shadow(0 8px 30px rgba(0,0,0,.35));animation:pop .9s cubic-bezier(.2,.8,.2,1.2) both}
+@keyframes pop{from{transform:scale(.85);opacity:0}to{transform:scale(1);opacity:1}}
+.nav .brand{transition:opacity .3s ease}
+.nav:not(.scrolled) .brand{opacity:0;pointer-events:none}
+
+.hero{align-items:center!important}
+.hero-in{padding-top:clamp(300px,40vh,420px)!important;padding-bottom:clamp(40px,6vw,80px)!important}
+</style>
+</head>
+<body>
+
+
+<header class="nav"><div class="wrap nav-in">
+  <a class="brand" href="#top" aria-label="Mom&amp;Pop, home"><svg xmlns="http://www.w3.org/2000/svg" viewBox="62 180 472 472" role="img" aria-label="Mom&amp;Pop"><path fill-rule="nonzero" fill="rgb(93.466187%, 16.334534%, 20.578003%)" fill-opacity="1" d="M 172.882812 363.980469 C 172.113281 369.453125 170.152344 372.671875 167.898438 374.699219 C 162.816406 379.265625 157.554688 377.84375 152.1875 373.636719 C 147.570312 370.023438 145.339844 364.910156 143.902344 359.511719 C 142.800781 355.367188 142.460938 351.019531 141.648438 346.789062 C 141.277344 344.839844 140.886719 342.777344 139.929688 341.097656 C 139.214844 339.851562 137.519531 338.324219 136.351562 338.398438 C 134.890625 338.492188 132.992188 339.789062 132.238281 341.113281 C 131.175781 342.972656 130.671875 345.304688 130.488281 347.484375 C 129.921875 354.113281 131.117188 360.539062 133.410156 366.761719 C 134.933594 370.882812 136.703125 374.917969 138.042969 379.097656 C 141.652344 390.359375 138.871094 398.453125 128.625 404.277344 C 118.082031 410.265625 106.820312 414.753906 94.800781 416.875 C 91.820312 417.402344 88.59375 417.320312 85.601562 416.800781 C 77.195312 415.347656 72.050781 409.132812 71.46875 400.058594 C 70.882812 390.972656 72.316406 382.058594 74.164062 373.214844 C 82.207031 334.757812 98.804688 300.40625 124.023438 270.289062 C 127.355469 266.3125 131.375 262.816406 135.496094 259.644531 C 137.710938 257.941406 140.746094 257.074219 143.546875 256.417969 C 147.851562 255.414062 151.699219 257.589844 153.074219 261.792969 C 153.898438 264.308594 154.148438 267.0625 154.324219 269.726562 C 154.558594 273.339844 154.367188 276.980469 154.566406 280.597656 C 154.664062 282.339844 154.925781 284.210938 155.683594 285.742188 C 156.289062 286.964844 157.714844 288.488281 158.859375 288.554688 C 160.140625 288.632812 162.148438 287.542969 162.714844 286.402344 C 163.953125 283.902344 164.792969 281.101562 165.238281 278.335938 C 166.367188 271.339844 166.679688 264.183594 168.210938 257.289062 C 173.914062 231.679688 190.28125 216.167969 215.210938 209.421875 C 218.855469 208.4375 223.050781 208.632812 226.835938 209.242188 C 232.332031 210.121094 235.667969 214.183594 235.792969 219.765625 C 235.867188 223.332031 235.363281 227 234.542969 230.484375 C 230.84375 246.191406 228.855469 262.027344 230.074219 278.1875 C 231.523438 297.421875 236.359375 315.660156 245.59375 332.699219 C 248.003906 337.152344 250.035156 341.875 251.679688 346.667969 C 255.132812 356.738281 254.03125 366.746094 250.316406 376.558594 C 245.828125 388.421875 239.332031 398.867188 228.507812 405.964844 C 220.191406 411.421875 211.058594 413.546875 201.15625 411.394531 C 185.910156 408.082031 177.816406 395.816406 181.101562 380.570312 C 182.851562 372.445312 185.253906 364.464844 187.035156 356.347656 C 188.292969 350.617188 188.890625 344.765625 187.425781 338.925781 C 187.277344 338.328125 187.160156 337.714844 186.925781 337.148438 C 185.945312 334.765625 184.605469 332.730469 181.699219 332.589844 C 179.25 332.472656 176.980469 334 176.273438 337.085938 C 175.425781 340.800781 175.246094 344.664062 174.773438 348.464844 Z M 172.882812 363.980469 "/><path fill-rule="nonzero" fill="rgb(56.63147%, 67.492676%, 82.067871%)" fill-opacity="1" d="M 419.5 341.414062 C 419.332031 337.957031 419.421875 334.460938 418.929688 331.050781 C 418.28125 326.53125 416.019531 324.253906 412.933594 324.285156 C 409.988281 324.308594 407.664062 326.875 406.84375 331.125 C 405.613281 337.5 406.261719 343.867188 407.003906 350.230469 C 407.742188 356.578125 408.820312 362.910156 409.164062 369.277344 C 409.695312 379.066406 407.328125 387.957031 399.488281 394.652344 C 395.183594 398.335938 390.082031 400.109375 384.5625 400.910156 C 367.09375 403.441406 346.75 391.742188 339.988281 375.390625 C 336.003906 365.746094 336.644531 356.3125 341.363281 347.242188 C 344.667969 340.894531 348.585938 334.867188 352.253906 328.710938 C 361.546875 313.097656 366.253906 296.125 367.625 278.078125 C 368.945312 260.652344 366.804688 243.625 362.492188 226.777344 C 361.980469 224.785156 361.789062 222.660156 361.785156 220.597656 C 361.765625 213.644531 365.671875 209.375 372.574219 208.460938 C 377.46875 207.8125 382.140625 208.878906 386.636719 210.503906 C 403.273438 216.523438 416.507812 226.65625 424.589844 242.765625 C 428.765625 251.089844 430.542969 260.058594 431.503906 269.238281 C 431.855469 272.609375 432.292969 275.980469 432.929688 279.304688 C 433.230469 280.855469 433.832031 282.507812 434.792969 283.71875 C 435.605469 284.738281 437.195312 285.808594 438.335938 285.703125 C 439.460938 285.605469 441.007812 284.238281 441.386719 283.101562 C 442.179688 280.734375 442.496094 278.160156 442.691406 275.648438 C 442.953125 272.351562 442.699219 269.007812 443.039062 265.722656 C 443.773438 258.558594 448.503906 255.507812 455.441406 257.511719 C 461.488281 259.253906 465.902344 263.324219 469.894531 267.890625 C 483.628906 283.605469 494.566406 301.15625 503.75 319.84375 C 514.109375 340.914062 520.8125 363.089844 523.523438 386.414062 C 524.078125 391.207031 524.230469 396.136719 523.796875 400.933594 C 522.667969 413.410156 513.460938 420.382812 501.296875 417.183594 C 488.664062 413.859375 476.230469 409.652344 463.929688 405.21875 C 456.472656 402.535156 451.054688 397.210938 451.042969 388.609375 C 451.035156 384.695312 452.019531 380.664062 453.199219 376.886719 C 455.242188 370.355469 458.011719 364.046875 460.054688 357.511719 C 461.714844 352.199219 462.417969 346.640625 461.375 341.066406 C 461.042969 339.292969 460.460938 337.4375 459.496094 335.9375 C 457.964844 333.550781 455.011719 333.484375 453.570312 335.90625 C 452.390625 337.894531 451.84375 340.296875 451.242188 342.574219 C 449.945312 347.480469 449.070312 352.515625 447.496094 357.324219 C 446.273438 361.046875 444.179688 364.445312 440.933594 366.9375 C 435.136719 371.394531 428.453125 370.476562 424.15625 364.539062 C 420.828125 359.929688 419.792969 354.558594 419.363281 349.054688 C 419.167969 346.527344 419.339844 343.96875 419.347656 341.425781 Z M 419.5 341.414062 "/><path fill-rule="nonzero" fill="rgb(26.460266%, 32.035828%, 67.474365%)" fill-opacity="1" d="M 174.933594 484.992188 C 174.820312 484.949219 174.707031 484.902344 174.59375 484.859375 C 174.402344 483.101562 174.359375 481.316406 174.003906 479.59375 C 171.949219 469.710938 166.972656 462.226562 156.761719 459.308594 C 147.078125 456.542969 137.789062 461.726562 136.175781 470.667969 C 134.257812 481.320312 140.539062 495.414062 149.765625 501.144531 C 158.550781 506.605469 168.824219 503.417969 172.664062 493.847656 C 173.785156 491.042969 174.199219 487.949219 174.933594 484.992188 M 230.472656 485.988281 C 230.144531 497.070312 228.054688 507.640625 222.425781 517.289062 C 214.152344 531.464844 201.769531 539.605469 185.582031 541.992188 C 182.761719 542.40625 179.902344 542.523438 177.074219 542.894531 C 175.328125 543.128906 173.527344 543.363281 171.894531 543.980469 C 166.988281 545.828125 165.699219 550.636719 169.476562 554.238281 C 171.980469 556.625 175.160156 558.449219 178.296875 559.996094 C 184.101562 562.851562 190.253906 565.015625 195.976562 568.011719 C 212.058594 576.425781 220.335938 594.3125 216.695312 612.097656 C 214.222656 624.1875 205.503906 629.777344 193.464844 626.929688 C 185.863281 625.136719 179.085938 621.472656 172.527344 617.390625 C 153.191406 605.355469 136.890625 589.972656 122.710938 572.238281 C 103.015625 547.605469 89.039062 520 79.839844 489.914062 C 77.035156 480.742188 74.867188 471.460938 75.425781 461.738281 C 76.113281 449.859375 81.246094 440.339844 91.480469 434.40625 C 112.398438 422.269531 134.808594 414.6875 159.316406 415.183594 C 176.996094 415.535156 193.253906 420.503906 206.800781 432.363281 C 219.164062 443.1875 226.34375 457.007812 229.085938 473.132812 C 229.808594 477.375 230.023438 481.699219 230.472656 485.988281 "/><path fill-rule="nonzero" fill="rgb(87.426758%, 31.027222%, 20.61615%)" fill-opacity="1" d="M 321.308594 552.554688 C 321.390625 546.214844 320.335938 540.089844 317.460938 534.410156 C 313.742188 527.074219 308.050781 522.222656 299.585938 521.511719 C 291.316406 520.816406 284.546875 524.054688 280.367188 531.085938 C 272.199219 544.824219 271.808594 559.097656 279.964844 572.953125 C 287.371094 585.539062 305.351562 586.332031 314.375 574.847656 C 319.511719 568.316406 321.230469 560.675781 321.308594 552.554688 M 297.269531 480.410156 C 314.820312 480.6875 328.621094 482.582031 341.792969 488.089844 C 359.984375 495.695312 372.195312 509.03125 378.371094 527.488281 C 387.109375 553.613281 386.074219 579.609375 374.535156 604.730469 C 364.441406 626.703125 346.882812 639.980469 323.59375 645.679688 C 305.609375 650.082031 287.636719 649.710938 269.996094 643.847656 C 250.6875 637.429688 236.710938 624.667969 229.003906 605.972656 C 217.578125 578.269531 217.195312 550.105469 228.578125 522.214844 C 238.058594 498.984375 256.117188 486.316406 280.425781 482.160156 C 287.085938 481.019531 293.894531 480.746094 297.269531 480.410156 "/><path fill-rule="nonzero" fill="rgb(78.251648%, 69.300842%, 86.99646%)" fill-opacity="1" d="M 465.949219 475.671875 C 465.933594 462.683594 458.011719 454.40625 445.683594 453.851562 C 436.90625 453.457031 430.242188 458.183594 428.59375 466.515625 C 426.785156 475.648438 428.390625 484.375 433.539062 492.15625 C 439.335938 500.917969 451.261719 501.738281 458.539062 494.140625 C 463.660156 488.796875 465.75 482.269531 465.949219 475.671875 M 521.085938 462.6875 C 520.589844 477.816406 517.464844 490.167969 512.890625 502.191406 C 508.234375 514.441406 502.324219 526.003906 493.453125 535.8125 C 489.121094 540.609375 484.144531 544.597656 477.933594 546.773438 C 472.796875 548.570312 467.652344 548.578125 462.546875 546.65625 C 461.035156 546.085938 459.582031 545.367188 458.089844 544.742188 C 454.019531 543.039062 450.976562 545.058594 451.355469 549.425781 C 451.550781 551.699219 452.230469 553.953125 452.890625 556.15625 C 454.679688 562.09375 456.058594 568.0625 455.515625 574.34375 C 454.929688 581.09375 452.558594 587.195312 448.136719 592.230469 C 435.679688 606.421875 420.722656 617.234375 402.992188 623.871094 C 399.59375 625.144531 395.539062 625.574219 391.925781 625.171875 C 385.148438 624.417969 381.339844 619.046875 382.398438 612.304688 C 383.089844 607.921875 384.214844 603.566406 385.558594 599.328125 C 391.1875 581.558594 392.488281 563.417969 390.78125 544.941406 C 389.039062 526.117188 383.828125 508.074219 378.945312 489.925781 C 376.429688 480.570312 374.171875 471.101562 372.613281 461.546875 C 370.722656 449.945312 372.765625 438.925781 380.398438 429.503906 C 386.527344 421.9375 394.730469 417.492188 403.84375 414.570312 C 417.585938 410.167969 431.660156 409.457031 445.917969 410.890625 C 464.140625 412.71875 481.421875 417.832031 497.570312 426.425781 C 507.890625 431.917969 516.003906 439.710938 519.203125 451.402344 C 520.390625 455.742188 520.707031 460.320312 521.085938 462.6875 "/><path fill-rule="nonzero" fill="rgb(97.296143%, 81.140137%, 19.63501%)" fill-opacity="1" d="M 301.226562 383.769531 C 301.1875 387.808594 297.351562 391.816406 293.53125 391.8125 C 290.210938 391.808594 286.949219 387.734375 286.988281 383.636719 C 287.027344 379.753906 289.992188 376.832031 293.914062 376.8125 C 298.085938 376.792969 301.265625 379.816406 301.226562 383.769531 M 294.34375 445.425781 C 291.726562 446.234375 288.980469 446.609375 287.5 446.925781 C 280.742188 446.625 275.664062 445.351562 271.910156 441.027344 C 267.253906 435.664062 269.292969 427.679688 275.859375 425.320312 C 278.5625 424.347656 280.976562 424.796875 282.996094 426.988281 C 287.171875 431.503906 291.386719 435.988281 295.578125 440.492188 C 297.648438 442.714844 297.292969 444.519531 294.34375 445.425781 M 354.761719 445.589844 C 352.832031 445.066406 350.863281 444.617188 349.011719 443.882812 C 344.851562 442.226562 344.621094 440.511719 347.761719 437.367188 C 350.585938 434.535156 353.558594 431.769531 355.902344 428.566406 C 360.414062 422.390625 360.027344 415.15625 355.242188 409.332031 C 351.40625 404.667969 346.363281 401.9375 340.4375 401.066406 C 332.980469 399.972656 327.457031 404.128906 326.15625 411.558594 C 325.929688 412.847656 325.960938 414.195312 325.621094 415.453125 C 325.128906 417.289062 324.636719 419.195312 323.730469 420.847656 C 322.496094 423.097656 321.179688 423.230469 319.289062 421.488281 C 316.226562 418.667969 313.246094 415.753906 310.265625 412.847656 C 307.308594 409.960938 307.691406 408.207031 311.1875 406.003906 C 314.820312 403.71875 318.625 401.484375 321.683594 398.539062 C 333.136719 387.515625 331.296875 369.707031 317.703125 361.5 C 303.277344 352.789062 288.035156 352.585938 272.972656 359.582031 C 256.09375 367.421875 252.621094 385.328125 261.085938 397.878906 C 262.765625 400.367188 261.796875 401.832031 258.824219 402.660156 C 255.054688 403.710938 251.152344 404.625 247.691406 406.359375 C 235.339844 412.550781 228.425781 422.582031 228.453125 436.582031 C 228.476562 449.589844 234.65625 459.601562 245.148438 466.945312 C 255.785156 474.382812 267.933594 476.792969 278.507812 476.933594 C 294.457031 477.085938 307.539062 473.558594 317.351562 466.828125 C 319.417969 465.410156 320.777344 465.753906 322.664062 467.144531 C 326.992188 470.339844 331.257812 473.8125 336.042969 476.160156 C 347.925781 481.976562 361.449219 476.050781 365.019531 463.941406 C 367.582031 455.246094 363.496094 447.945312 354.761719 445.589844 "/><path fill-rule="nonzero" fill="rgb(21.243286%, 55.513%, 36.943054%)" fill-opacity="1" d="M 313.894531 285.800781 C 311.035156 291.664062 306.082031 295.078125 299.351562 295.273438 C 292.488281 295.472656 287.144531 292.515625 283.902344 286.527344 C 278.972656 277.417969 278.933594 267.996094 283.765625 258.855469 C 286.980469 252.769531 292.433594 249.738281 299.375 249.976562 C 306.128906 250.207031 311 253.628906 314.164062 259.523438 C 316.53125 263.925781 317.144531 268.71875 317.121094 273.628906 C 317.171875 278.332031 315.710938 282.070312 313.894531 285.800781 M 358.277344 244.75 C 355.742188 231.996094 350.671875 220.308594 341.667969 210.671875 C 331.167969 199.4375 317.960938 194.304688 302.765625 193.351562 C 278.472656 191.824219 257.113281 203.972656 246.320312 225.738281 C 239.386719 239.726562 236.835938 254.644531 236.632812 270.230469 C 236.917969 287.078125 239.382812 303.625 247.089844 318.988281 C 256.605469 337.964844 271.765625 349.019531 293.195312 350.585938 C 308.894531 351.734375 323.25 347.949219 335.285156 337.410156 C 345.007812 328.894531 350.953125 317.867188 354.910156 305.734375 C 361.433594 285.722656 362.367188 265.328125 358.277344 244.75 "/></svg></a>
+  <ul class="links">
+    <li><a href="#about">About us</a></li>
+    <li><a href="#webshop">Webshop</a></li>
+    <li><a href="#events">Events</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+  <div class="nav-r">
+    <div class="lang" role="group" aria-label="Language">
+      <button type="button" data-lang="nl" id="lang-nl">NL</button><button type="button" data-lang="en" id="lang-en">EN</button><button type="button" data-lang="fr" id="lang-fr">FR</button>
+    </div>
+    <a class="btn btn-dark cart-btn" href="#webshop" id="cartBtn"><span class="cart-lbl">Order</span> <span class="cart-count" id="cartCount">0</span></a>
+  </div>
+</div></header>
+
+<main id="top">
+<div class="hero-bleed">
+  <div class="hero">
+    <img class="bg" src="cover.jpg" alt="A young tree beside an old stone wall in warm evening light">
+    <div class="hero-in">
+      <div class="hero-left">
+        <div class="hero-logo"><svg xmlns="http://www.w3.org/2000/svg" viewBox="62 180 472 472" role="img" aria-label="Mom&amp;Pop"><path fill-rule="nonzero" fill="rgb(93.466187%, 16.334534%, 20.578003%)" fill-opacity="1" d="M 172.882812 363.980469 C 172.113281 369.453125 170.152344 372.671875 167.898438 374.699219 C 162.816406 379.265625 157.554688 377.84375 152.1875 373.636719 C 147.570312 370.023438 145.339844 364.910156 143.902344 359.511719 C 142.800781 355.367188 142.460938 351.019531 141.648438 346.789062 C 141.277344 344.839844 140.886719 342.777344 139.929688 341.097656 C 139.214844 339.851562 137.519531 338.324219 136.351562 338.398438 C 134.890625 338.492188 132.992188 339.789062 132.238281 341.113281 C 131.175781 342.972656 130.671875 345.304688 130.488281 347.484375 C 129.921875 354.113281 131.117188 360.539062 133.410156 366.761719 C 134.933594 370.882812 136.703125 374.917969 138.042969 379.097656 C 141.652344 390.359375 138.871094 398.453125 128.625 404.277344 C 118.082031 410.265625 106.820312 414.753906 94.800781 416.875 C 91.820312 417.402344 88.59375 417.320312 85.601562 416.800781 C 77.195312 415.347656 72.050781 409.132812 71.46875 400.058594 C 70.882812 390.972656 72.316406 382.058594 74.164062 373.214844 C 82.207031 334.757812 98.804688 300.40625 124.023438 270.289062 C 127.355469 266.3125 131.375 262.816406 135.496094 259.644531 C 137.710938 257.941406 140.746094 257.074219 143.546875 256.417969 C 147.851562 255.414062 151.699219 257.589844 153.074219 261.792969 C 153.898438 264.308594 154.148438 267.0625 154.324219 269.726562 C 154.558594 273.339844 154.367188 276.980469 154.566406 280.597656 C 154.664062 282.339844 154.925781 284.210938 155.683594 285.742188 C 156.289062 286.964844 157.714844 288.488281 158.859375 288.554688 C 160.140625 288.632812 162.148438 287.542969 162.714844 286.402344 C 163.953125 283.902344 164.792969 281.101562 165.238281 278.335938 C 166.367188 271.339844 166.679688 264.183594 168.210938 257.289062 C 173.914062 231.679688 190.28125 216.167969 215.210938 209.421875 C 218.855469 208.4375 223.050781 208.632812 226.835938 209.242188 C 232.332031 210.121094 235.667969 214.183594 235.792969 219.765625 C 235.867188 223.332031 235.363281 227 234.542969 230.484375 C 230.84375 246.191406 228.855469 262.027344 230.074219 278.1875 C 231.523438 297.421875 236.359375 315.660156 245.59375 332.699219 C 248.003906 337.152344 250.035156 341.875 251.679688 346.667969 C 255.132812 356.738281 254.03125 366.746094 250.316406 376.558594 C 245.828125 388.421875 239.332031 398.867188 228.507812 405.964844 C 220.191406 411.421875 211.058594 413.546875 201.15625 411.394531 C 185.910156 408.082031 177.816406 395.816406 181.101562 380.570312 C 182.851562 372.445312 185.253906 364.464844 187.035156 356.347656 C 188.292969 350.617188 188.890625 344.765625 187.425781 338.925781 C 187.277344 338.328125 187.160156 337.714844 186.925781 337.148438 C 185.945312 334.765625 184.605469 332.730469 181.699219 332.589844 C 179.25 332.472656 176.980469 334 176.273438 337.085938 C 175.425781 340.800781 175.246094 344.664062 174.773438 348.464844 Z M 172.882812 363.980469 "/><path fill-rule="nonzero" fill="rgb(56.63147%, 67.492676%, 82.067871%)" fill-opacity="1" d="M 419.5 341.414062 C 419.332031 337.957031 419.421875 334.460938 418.929688 331.050781 C 418.28125 326.53125 416.019531 324.253906 412.933594 324.285156 C 409.988281 324.308594 407.664062 326.875 406.84375 331.125 C 405.613281 337.5 406.261719 343.867188 407.003906 350.230469 C 407.742188 356.578125 408.820312 362.910156 409.164062 369.277344 C 409.695312 379.066406 407.328125 387.957031 399.488281 394.652344 C 395.183594 398.335938 390.082031 400.109375 384.5625 400.910156 C 367.09375 403.441406 346.75 391.742188 339.988281 375.390625 C 336.003906 365.746094 336.644531 356.3125 341.363281 347.242188 C 344.667969 340.894531 348.585938 334.867188 352.253906 328.710938 C 361.546875 313.097656 366.253906 296.125 367.625 278.078125 C 368.945312 260.652344 366.804688 243.625 362.492188 226.777344 C 361.980469 224.785156 361.789062 222.660156 361.785156 220.597656 C 361.765625 213.644531 365.671875 209.375 372.574219 208.460938 C 377.46875 207.8125 382.140625 208.878906 386.636719 210.503906 C 403.273438 216.523438 416.507812 226.65625 424.589844 242.765625 C 428.765625 251.089844 430.542969 260.058594 431.503906 269.238281 C 431.855469 272.609375 432.292969 275.980469 432.929688 279.304688 C 433.230469 280.855469 433.832031 282.507812 434.792969 283.71875 C 435.605469 284.738281 437.195312 285.808594 438.335938 285.703125 C 439.460938 285.605469 441.007812 284.238281 441.386719 283.101562 C 442.179688 280.734375 442.496094 278.160156 442.691406 275.648438 C 442.953125 272.351562 442.699219 269.007812 443.039062 265.722656 C 443.773438 258.558594 448.503906 255.507812 455.441406 257.511719 C 461.488281 259.253906 465.902344 263.324219 469.894531 267.890625 C 483.628906 283.605469 494.566406 301.15625 503.75 319.84375 C 514.109375 340.914062 520.8125 363.089844 523.523438 386.414062 C 524.078125 391.207031 524.230469 396.136719 523.796875 400.933594 C 522.667969 413.410156 513.460938 420.382812 501.296875 417.183594 C 488.664062 413.859375 476.230469 409.652344 463.929688 405.21875 C 456.472656 402.535156 451.054688 397.210938 451.042969 388.609375 C 451.035156 384.695312 452.019531 380.664062 453.199219 376.886719 C 455.242188 370.355469 458.011719 364.046875 460.054688 357.511719 C 461.714844 352.199219 462.417969 346.640625 461.375 341.066406 C 461.042969 339.292969 460.460938 337.4375 459.496094 335.9375 C 457.964844 333.550781 455.011719 333.484375 453.570312 335.90625 C 452.390625 337.894531 451.84375 340.296875 451.242188 342.574219 C 449.945312 347.480469 449.070312 352.515625 447.496094 357.324219 C 446.273438 361.046875 444.179688 364.445312 440.933594 366.9375 C 435.136719 371.394531 428.453125 370.476562 424.15625 364.539062 C 420.828125 359.929688 419.792969 354.558594 419.363281 349.054688 C 419.167969 346.527344 419.339844 343.96875 419.347656 341.425781 Z M 419.5 341.414062 "/><path fill-rule="nonzero" fill="rgb(26.460266%, 32.035828%, 67.474365%)" fill-opacity="1" d="M 174.933594 484.992188 C 174.820312 484.949219 174.707031 484.902344 174.59375 484.859375 C 174.402344 483.101562 174.359375 481.316406 174.003906 479.59375 C 171.949219 469.710938 166.972656 462.226562 156.761719 459.308594 C 147.078125 456.542969 137.789062 461.726562 136.175781 470.667969 C 134.257812 481.320312 140.539062 495.414062 149.765625 501.144531 C 158.550781 506.605469 168.824219 503.417969 172.664062 493.847656 C 173.785156 491.042969 174.199219 487.949219 174.933594 484.992188 M 230.472656 485.988281 C 230.144531 497.070312 228.054688 507.640625 222.425781 517.289062 C 214.152344 531.464844 201.769531 539.605469 185.582031 541.992188 C 182.761719 542.40625 179.902344 542.523438 177.074219 542.894531 C 175.328125 543.128906 173.527344 543.363281 171.894531 543.980469 C 166.988281 545.828125 165.699219 550.636719 169.476562 554.238281 C 171.980469 556.625 175.160156 558.449219 178.296875 559.996094 C 184.101562 562.851562 190.253906 565.015625 195.976562 568.011719 C 212.058594 576.425781 220.335938 594.3125 216.695312 612.097656 C 214.222656 624.1875 205.503906 629.777344 193.464844 626.929688 C 185.863281 625.136719 179.085938 621.472656 172.527344 617.390625 C 153.191406 605.355469 136.890625 589.972656 122.710938 572.238281 C 103.015625 547.605469 89.039062 520 79.839844 489.914062 C 77.035156 480.742188 74.867188 471.460938 75.425781 461.738281 C 76.113281 449.859375 81.246094 440.339844 91.480469 434.40625 C 112.398438 422.269531 134.808594 414.6875 159.316406 415.183594 C 176.996094 415.535156 193.253906 420.503906 206.800781 432.363281 C 219.164062 443.1875 226.34375 457.007812 229.085938 473.132812 C 229.808594 477.375 230.023438 481.699219 230.472656 485.988281 "/><path fill-rule="nonzero" fill="rgb(87.426758%, 31.027222%, 20.61615%)" fill-opacity="1" d="M 321.308594 552.554688 C 321.390625 546.214844 320.335938 540.089844 317.460938 534.410156 C 313.742188 527.074219 308.050781 522.222656 299.585938 521.511719 C 291.316406 520.816406 284.546875 524.054688 280.367188 531.085938 C 272.199219 544.824219 271.808594 559.097656 279.964844 572.953125 C 287.371094 585.539062 305.351562 586.332031 314.375 574.847656 C 319.511719 568.316406 321.230469 560.675781 321.308594 552.554688 M 297.269531 480.410156 C 314.820312 480.6875 328.621094 482.582031 341.792969 488.089844 C 359.984375 495.695312 372.195312 509.03125 378.371094 527.488281 C 387.109375 553.613281 386.074219 579.609375 374.535156 604.730469 C 364.441406 626.703125 346.882812 639.980469 323.59375 645.679688 C 305.609375 650.082031 287.636719 649.710938 269.996094 643.847656 C 250.6875 637.429688 236.710938 624.667969 229.003906 605.972656 C 217.578125 578.269531 217.195312 550.105469 228.578125 522.214844 C 238.058594 498.984375 256.117188 486.316406 280.425781 482.160156 C 287.085938 481.019531 293.894531 480.746094 297.269531 480.410156 "/><path fill-rule="nonzero" fill="rgb(78.251648%, 69.300842%, 86.99646%)" fill-opacity="1" d="M 465.949219 475.671875 C 465.933594 462.683594 458.011719 454.40625 445.683594 453.851562 C 436.90625 453.457031 430.242188 458.183594 428.59375 466.515625 C 426.785156 475.648438 428.390625 484.375 433.539062 492.15625 C 439.335938 500.917969 451.261719 501.738281 458.539062 494.140625 C 463.660156 488.796875 465.75 482.269531 465.949219 475.671875 M 521.085938 462.6875 C 520.589844 477.816406 517.464844 490.167969 512.890625 502.191406 C 508.234375 514.441406 502.324219 526.003906 493.453125 535.8125 C 489.121094 540.609375 484.144531 544.597656 477.933594 546.773438 C 472.796875 548.570312 467.652344 548.578125 462.546875 546.65625 C 461.035156 546.085938 459.582031 545.367188 458.089844 544.742188 C 454.019531 543.039062 450.976562 545.058594 451.355469 549.425781 C 451.550781 551.699219 452.230469 553.953125 452.890625 556.15625 C 454.679688 562.09375 456.058594 568.0625 455.515625 574.34375 C 454.929688 581.09375 452.558594 587.195312 448.136719 592.230469 C 435.679688 606.421875 420.722656 617.234375 402.992188 623.871094 C 399.59375 625.144531 395.539062 625.574219 391.925781 625.171875 C 385.148438 624.417969 381.339844 619.046875 382.398438 612.304688 C 383.089844 607.921875 384.214844 603.566406 385.558594 599.328125 C 391.1875 581.558594 392.488281 563.417969 390.78125 544.941406 C 389.039062 526.117188 383.828125 508.074219 378.945312 489.925781 C 376.429688 480.570312 374.171875 471.101562 372.613281 461.546875 C 370.722656 449.945312 372.765625 438.925781 380.398438 429.503906 C 386.527344 421.9375 394.730469 417.492188 403.84375 414.570312 C 417.585938 410.167969 431.660156 409.457031 445.917969 410.890625 C 464.140625 412.71875 481.421875 417.832031 497.570312 426.425781 C 507.890625 431.917969 516.003906 439.710938 519.203125 451.402344 C 520.390625 455.742188 520.707031 460.320312 521.085938 462.6875 "/><path fill-rule="nonzero" fill="rgb(97.296143%, 81.140137%, 19.63501%)" fill-opacity="1" d="M 301.226562 383.769531 C 301.1875 387.808594 297.351562 391.816406 293.53125 391.8125 C 290.210938 391.808594 286.949219 387.734375 286.988281 383.636719 C 287.027344 379.753906 289.992188 376.832031 293.914062 376.8125 C 298.085938 376.792969 301.265625 379.816406 301.226562 383.769531 M 294.34375 445.425781 C 291.726562 446.234375 288.980469 446.609375 287.5 446.925781 C 280.742188 446.625 275.664062 445.351562 271.910156 441.027344 C 267.253906 435.664062 269.292969 427.679688 275.859375 425.320312 C 278.5625 424.347656 280.976562 424.796875 282.996094 426.988281 C 287.171875 431.503906 291.386719 435.988281 295.578125 440.492188 C 297.648438 442.714844 297.292969 444.519531 294.34375 445.425781 M 354.761719 445.589844 C 352.832031 445.066406 350.863281 444.617188 349.011719 443.882812 C 344.851562 442.226562 344.621094 440.511719 347.761719 437.367188 C 350.585938 434.535156 353.558594 431.769531 355.902344 428.566406 C 360.414062 422.390625 360.027344 415.15625 355.242188 409.332031 C 351.40625 404.667969 346.363281 401.9375 340.4375 401.066406 C 332.980469 399.972656 327.457031 404.128906 326.15625 411.558594 C 325.929688 412.847656 325.960938 414.195312 325.621094 415.453125 C 325.128906 417.289062 324.636719 419.195312 323.730469 420.847656 C 322.496094 423.097656 321.179688 423.230469 319.289062 421.488281 C 316.226562 418.667969 313.246094 415.753906 310.265625 412.847656 C 307.308594 409.960938 307.691406 408.207031 311.1875 406.003906 C 314.820312 403.71875 318.625 401.484375 321.683594 398.539062 C 333.136719 387.515625 331.296875 369.707031 317.703125 361.5 C 303.277344 352.789062 288.035156 352.585938 272.972656 359.582031 C 256.09375 367.421875 252.621094 385.328125 261.085938 397.878906 C 262.765625 400.367188 261.796875 401.832031 258.824219 402.660156 C 255.054688 403.710938 251.152344 404.625 247.691406 406.359375 C 235.339844 412.550781 228.425781 422.582031 228.453125 436.582031 C 228.476562 449.589844 234.65625 459.601562 245.148438 466.945312 C 255.785156 474.382812 267.933594 476.792969 278.507812 476.933594 C 294.457031 477.085938 307.539062 473.558594 317.351562 466.828125 C 319.417969 465.410156 320.777344 465.753906 322.664062 467.144531 C 326.992188 470.339844 331.257812 473.8125 336.042969 476.160156 C 347.925781 481.976562 361.449219 476.050781 365.019531 463.941406 C 367.582031 455.246094 363.496094 447.945312 354.761719 445.589844 "/><path fill-rule="nonzero" fill="rgb(21.243286%, 55.513%, 36.943054%)" fill-opacity="1" d="M 313.894531 285.800781 C 311.035156 291.664062 306.082031 295.078125 299.351562 295.273438 C 292.488281 295.472656 287.144531 292.515625 283.902344 286.527344 C 278.972656 277.417969 278.933594 267.996094 283.765625 258.855469 C 286.980469 252.769531 292.433594 249.738281 299.375 249.976562 C 306.128906 250.207031 311 253.628906 314.164062 259.523438 C 316.53125 263.925781 317.144531 268.71875 317.121094 273.628906 C 317.171875 278.332031 315.710938 282.070312 313.894531 285.800781 M 358.277344 244.75 C 355.742188 231.996094 350.671875 220.308594 341.667969 210.671875 C 331.167969 199.4375 317.960938 194.304688 302.765625 193.351562 C 278.472656 191.824219 257.113281 203.972656 246.320312 225.738281 C 239.386719 239.726562 236.835938 254.644531 236.632812 270.230469 C 236.917969 287.078125 239.382812 303.625 247.089844 318.988281 C 256.605469 337.964844 271.765625 349.019531 293.195312 350.585938 C 308.894531 351.734375 323.25 347.949219 335.285156 337.410156 C 345.007812 328.894531 350.953125 317.867188 354.910156 305.734375 C 361.433594 285.722656 362.367188 265.328125 358.277344 244.75 "/></svg></div>
+      <h1>Good, simple and above all <em>Yummy.</em></h1>
+      </div>
+      <div class="hero-side">
+        <div style="display:flex;gap:10px;flex-wrap:wrap">
+          <a class="btn btn-yellow" href="#webshop">Order online <span class="arr">→</span></a>
+          <a class="btn" style="background:rgba(255,255,255,.16);color:#fff;box-shadow:inset 0 0 0 1.5px rgba(255,255,255,.4)" href="#events">Plan an event</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ABOUT -->
+<section id="about" class="band band-beige"><div class="wrap">
+  <div class="about-grid">
+    <div class="about-lead">
+      <span class="eyebrow">About us</span>
+      <h2>Who are <span class="it">we?</span></h2>
+      <p class="big"><b>Mom&amp;Pop</b> is a Belgian food concept creating warm and vibrant places centred around fresh, healthy and, above all, delicious food.</p>
+      <p>Our ambition is simple: create places where people enjoy coming to eat, meet and take a break, with a strong focus on quality, freshness and enjoyment.</p>
+      <p>Because in the end, whether you come for lunch, to work, to catch up with someone or simply to enjoy good food, what matters is the same: it should be good, simple and, above all, <span class="yummy">Yummy</span>.</p>
+      <div><a class="btn btn-dark" href="#contact">Get in touch <span class="arr">→</span></a></div>
+    </div>
+    <div class="about-visual">
+      <img src="cover.jpg" alt="">
+      <div class="stat"><span class="num">35</span><p><b>locations and counting</b>Each venue built with the same ambition: a simple, warm and delicious experience.</p></div>
+    </div>
+  </div>
+
+  <div class="pillars">
+    <article class="pillar p-green">
+      <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21c-5 0-8-3.5-8-8 0-5 4-9 9-9h7v7c0 5-3.5 10-8 10z"/><path d="M4 20c4-5 8-8 12-10"/></svg></div>
+      <h3>Our approach</h3>
+      <p>We believe a good meal can truly make a difference to your day. That's why we prioritise fresh, high-quality ingredients, with particular attention to local and seasonal produce.</p>
+      <p>Menus that are varied, generous and balanced, with options for every taste and every craving.</p>
+    </article>
+    <article class="pillar p-lilac">
+      <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 10l9-6 9 6v10H3z"/><path d="M9 20v-6h6v6"/></svg></div>
+      <h3>Our restaurants</h3>
+      <p>Above all, places where people feel good. Relaxed and welcoming spaces to take a break, share a meal or simply enjoy a good moment.</p>
+    </article>
+    <article class="pillar p-blue">
+      <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 12a8 8 0 1 1-3-6.2"/><path d="M20 4v5h-5"/></svg></div>
+      <h3>Our commitment to sustainability</h3>
+      <p>Environmental responsibility is at the heart of our philosophy: eco-friendly packaging, minimal food waste and support for sustainable agricultural practices.</p>
+      <p>We also encourage our teams and customers to adopt more environmentally friendly eating habits.</p>
+    </article>
+  </div>
+</div></section>
+
+<!-- WEBSHOP -->
+<section class="shop band band-white" id="webshop"><div class="wrap">
+  <div class="shop-top">
+    <div class="sec-head">
+      <span class="eyebrow">Webshop</span>
+      <h2>Order for the office, delivered <span class="it">fresh</span></h2>
+      <p>Order by 2 pm for next-day delivery across Belgium. Minimum order of 10 portions.</p>
+    </div>
+    <div class="filters" role="group" aria-label="Filter products">
+      <button class="filter" aria-pressed="true" data-f="all" id="f-all">All</button>
+      <button class="filter" aria-pressed="false" data-f="breakfast" id="f-breakfast">Breakfast</button>
+      <button class="filter" aria-pressed="false" data-f="lunch" id="f-lunch">Lunch</button>
+      <button class="filter" aria-pressed="false" data-f="sweet" id="f-sweet">Sweet</button>
+    </div>
+  </div>
+  <div class="products" id="products"></div>
+  <div class="shop-note"><span><b>Free delivery</b> from €250 across Belgium.</span><span>Prices excl. VAT · Allergen list on every box</span></div>
+</div></section>
+
+<!-- EVENTS -->
+<section id="events" class="band band-sage"><div class="wrap">
+  <div class="ev-hero">
+    <div class="sec-head">
+      <span class="eyebrow">Events</span>
+      <h2>Your event, catered the <span class="it">Mom&amp;Pop way</span></h2>
+      <p>From a breakfast meeting for twelve to a wedding for three hundred, our kitchens prepare, deliver and serve fresh food that people remember.</p>
+    </div>
+    <div style="display:grid;gap:18px;justify-items:start">
+      <div class="ev-tabs" role="tablist" aria-label="Event type">
+        <button class="ev-tab" role="tab" aria-selected="true" aria-controls="ev-corp" id="tab-corp">Corporate</button>
+        <button class="ev-tab" role="tab" aria-selected="false" aria-controls="ev-priv" id="tab-priv">Private</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="ev-panel" id="ev-corp" role="tabpanel" aria-labelledby="tab-corp">
+    <div class="ev-feature corp">
+      <div style="display:grid;gap:16px">
+        <h3>Corporate events</h3>
+        <p>Feed your team well, from the first coffee to the closing drink. We handle the food so you can focus on your people.</p>
+      </div>
+      <div class="occasions"><span>Team building</span><span>Meetings</span><span>Conferences</span><span>Open house</span><span>Inaugurations</span><span>Business lunch</span></div>
+      <div><a class="btn btn-yellow" href="#contact" data-subject="corporate">Plan a corporate event <span class="arr">→</span></a></div>
+    </div>
+    <div class="formats">
+      <div class="format" style="--c:var(--yellow)"><div class="top"><span class="sw"></span><span class="pp">from 10 guests</span></div><h4>Breakfast boxes</h4><p>Granola, fresh fruit, viennoiseries and juices, packed per person.</p></div>
+      <div class="format" style="--c:var(--green)"><div class="top"><span class="sw"></span><span class="pp">from 10 guests</span></div><h4>Lunch &amp; sandwich boxes</h4><p>Seasonal salads, bowls and sandwiches, with a balanced choice for everyone.</p></div>
+      <div class="format" style="--c:var(--blue)"><div class="top"><span class="sw"></span><span class="pp">from 20 guests</span></div><h4>Cold buffet</h4><p>Generous shared platters set up on site, ready when your meeting breaks.</p></div>
+      <div class="format" style="--c:var(--orange)"><div class="top"><span class="sw"></span><span class="pp">from 40 guests</span></div><h4>Walking dinner</h4><p>Hot and cold bites served by our staff, ideal for launches and receptions.</p></div>
+    </div>
+  </div>
+
+  <div class="ev-panel" id="ev-priv" role="tabpanel" aria-labelledby="tab-priv" hidden>
+    <div class="ev-feature private photo">
+      <div style="display:grid;gap:16px">
+        <h3>Private events</h3>
+        <p>Celebrate with the people you love and leave the cooking to us. Menus shaped around your guests, your tastes and your budget.</p>
+      </div>
+      <div class="occasions"><span>Weddings</span><span>Birthdays</span><span>Seated dinners</span><span>Family gatherings</span><span>Themed parties</span><span>Cocktails</span></div>
+      <div><a class="btn btn-yellow" href="#contact" data-subject="private">Plan a private event <span class="arr">→</span></a></div>
+    </div>
+    <div class="formats">
+      <div class="format" style="--c:var(--lilac)"><div class="top"><span class="sw"></span><span class="pp">from 20 guests</span></div><h4>Brunch</h4><p>Sweet and savoury spread for long weekend celebrations.</p></div>
+      <div class="format" style="--c:var(--yellow)"><div class="top"><span class="sw"></span><span class="pp">from 30 guests</span></div><h4>Cocktail &amp; bites</h4><p>Finger food in small bites, passed around by our team.</p></div>
+      <div class="format" style="--c:var(--green)"><div class="top"><span class="sw"></span><span class="pp">from 20 guests</span></div><h4>Family-style buffet</h4><p>Big platters to share, the way Mom &amp; Pop would serve it.</p></div>
+      <div class="format" style="--c:var(--red)"><div class="top"><span class="sw"></span><span class="pp">from 12 guests</span></div><h4>Seated dinner</h4><p>Three courses served at the table, with or without staff.</p></div>
+    </div>
+  </div>
+
+  <div class="process">
+    <div class="sec-head">
+      <span class="eyebrow">How it works</span>
+      <h2>Four steps to a <span class="it">well-fed</span> event</h2>
+      <p>Tell us what you're planning. We send a first proposal within 48 hours.</p>
+    </div>
+    <div class="steps">
+      <div class="step" style="--c:var(--red)"><h4>Tell us about it</h4><p>Date, place, number of guests and the mood you're after.</p></div>
+      <div class="step" style="--c:var(--green)"><h4>Get your proposal</h4><p>A tailored menu and quote within 48 hours, dietary needs included.</p></div>
+      <div class="step" style="--c:var(--navy)"><h4>Taste and fine-tune</h4><p>For events over 80 guests, we invite you to a tasting in one of our restaurants.</p></div>
+      <div class="step" style="--c:var(--orange)"><h4>Enjoy the day</h4><p>We deliver, set up, serve and clear away. You look after your guests.</p></div>
+    </div>
+  </div>
+
+  <div class="included">
+    <h3>Everything <span class="it">included</span>, so you don't have to think about it</h3>
+    <ul class="inc-list">
+      <li>Delivery, setup and clearing</li>
+      <li>Serving staff on request</li>
+      <li>Crockery, glassware and linen</li>
+      <li>Vegetarian, vegan and gluten-free options</li>
+      <li>Eco-friendly packaging</li>
+      <li>Leftovers donated or packed for you</li>
+    </ul>
+  </div>
+</div></section>
+
+<!-- FAQ -->
+<section class="band band-dark" id="faq"><div class="wrap faq-grid">
+  <div class="sec-head">
+    <span class="eyebrow">FAQ</span>
+    <h2>Good <span class="it">questions</span></h2>
+    <p>Can't find your answer? Send us a message and we reply within one working day.</p>
+  </div>
+  <div class="faq">
+    <details open><summary>How far in advance should I order?</summary><p>For the webshop, order before 2 pm for next-day delivery. For events, we recommend two to three weeks ahead, and two months for weddings.</p></details>
+    <details><summary>Do you handle allergies and dietary needs?</summary><p>Yes. Every menu includes vegetarian, vegan and gluten-free options, and each box comes with a full allergen list.</p></details>
+    <details><summary>Where do you deliver?</summary><p>Everywhere in Belgium, close to our 35 locations. Ask us about events abroad.</p></details>
+    <details><summary>Can I change my order after confirming?</summary><p>You can adjust quantities up to 48 hours before delivery, free of charge.</p></details>
+    <details><summary>What happens to leftover food?</summary><p>We pack leftovers for you or donate them to local partners, in line with our commitment to reduce food waste.</p></details>
+  </div>
+</div></section>
+
+<!-- CONTACT -->
+<section id="contact" class="band band-beige"><div class="wrap contact">
+  <div class="c-info">
+    <img src="contact.jpg" alt="" style="object-position:60% center">
+    <div style="display:grid;gap:16px">
+      <span class="eyebrow" style="color:#fff;--leaf:var(--yellow)">Contact</span>
+      <h2>Let's talk <span class="it">food</span></h2>
+    </div>
+    <div class="c-rows">
+      <div class="c-row"><small>Email</small><span>gent@momnpop.be</span></div>
+      <div class="c-row"><small>Phone</small><span>+32 2 000 00 00</span></div>
+      <div class="c-row"><small>Office</small><span>Filips van Marnixstraat 1, 9000 Gent</span></div>
+      <div class="c-row"><small>Opening hours</small>
+        <div class="hours"><span>Monday – Friday</span><span>10:00 – 18:30</span><span>Saturday</span><span>10:00 – 18:00</span><span>Sunday</span><span>9:30 – 13:00</span></div>
+      </div>
+    </div>
+  </div>
+  <form class="c-form" id="contactForm" novalidate>
+    <h3>Send us a message</h3>
+    <div class="subject" role="radiogroup" aria-label="Subject">
+      <input type="radio" name="subject" id="s-order" value="order" checked><label for="s-order">Webshop order</label>
+      <input type="radio" name="subject" id="s-corporate" value="corporate"><label for="s-corporate">Corporate event</label>
+      <input type="radio" name="subject" id="s-private" value="private"><label for="s-private">Private event</label>
+      <input type="radio" name="subject" id="s-other" value="other"><label for="s-other">Other</label>
+    </div>
+    <div class="row2">
+      <div class="field"><label for="c-name">Name</label><input id="c-name" required autocomplete="name"></div>
+      <div class="field"><label for="c-company">Company (optional)</label><input id="c-company" autocomplete="organization"></div>
+    </div>
+    <div class="row2">
+      <div class="field"><label for="c-email">Email</label><input id="c-email" type="email" required autocomplete="email"></div>
+      <div class="field"><label for="c-phone">Phone</label><input id="c-phone" type="tel" autocomplete="tel"></div>
+    </div>
+    <div class="row2">
+      <div class="field"><label for="c-date">Event date</label><input id="c-date" type="date"></div>
+      <div class="field"><label for="c-guests">Number of guests</label><select id="c-guests"><option>10 – 25</option><option>25 – 50</option><option>50 – 100</option><option>100 – 250</option><option>250+</option></select></div>
+    </div>
+    <div class="field"><label for="c-msg">Tell us more</label><textarea id="c-msg" placeholder="Location, timing, dietary needs…"></textarea></div>
+    <div id="formMsg" hidden class="form-ok" role="status"></div>
+    <div><button class="btn btn-dark" type="submit">Send message <span class="arr">→</span></button></div>
+  </form>
+</div></section>
+
+<div class="wrap" style="padding-top:clamp(24px,4vw,48px)"><div class="cta">
+  <svg class="mark" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="62 180 472 472" ><path fill-rule="nonzero" fill="rgb(93.466187%, 16.334534%, 20.578003%)" fill-opacity="1" d="M 172.882812 363.980469 C 172.113281 369.453125 170.152344 372.671875 167.898438 374.699219 C 162.816406 379.265625 157.554688 377.84375 152.1875 373.636719 C 147.570312 370.023438 145.339844 364.910156 143.902344 359.511719 C 142.800781 355.367188 142.460938 351.019531 141.648438 346.789062 C 141.277344 344.839844 140.886719 342.777344 139.929688 341.097656 C 139.214844 339.851562 137.519531 338.324219 136.351562 338.398438 C 134.890625 338.492188 132.992188 339.789062 132.238281 341.113281 C 131.175781 342.972656 130.671875 345.304688 130.488281 347.484375 C 129.921875 354.113281 131.117188 360.539062 133.410156 366.761719 C 134.933594 370.882812 136.703125 374.917969 138.042969 379.097656 C 141.652344 390.359375 138.871094 398.453125 128.625 404.277344 C 118.082031 410.265625 106.820312 414.753906 94.800781 416.875 C 91.820312 417.402344 88.59375 417.320312 85.601562 416.800781 C 77.195312 415.347656 72.050781 409.132812 71.46875 400.058594 C 70.882812 390.972656 72.316406 382.058594 74.164062 373.214844 C 82.207031 334.757812 98.804688 300.40625 124.023438 270.289062 C 127.355469 266.3125 131.375 262.816406 135.496094 259.644531 C 137.710938 257.941406 140.746094 257.074219 143.546875 256.417969 C 147.851562 255.414062 151.699219 257.589844 153.074219 261.792969 C 153.898438 264.308594 154.148438 267.0625 154.324219 269.726562 C 154.558594 273.339844 154.367188 276.980469 154.566406 280.597656 C 154.664062 282.339844 154.925781 284.210938 155.683594 285.742188 C 156.289062 286.964844 157.714844 288.488281 158.859375 288.554688 C 160.140625 288.632812 162.148438 287.542969 162.714844 286.402344 C 163.953125 283.902344 164.792969 281.101562 165.238281 278.335938 C 166.367188 271.339844 166.679688 264.183594 168.210938 257.289062 C 173.914062 231.679688 190.28125 216.167969 215.210938 209.421875 C 218.855469 208.4375 223.050781 208.632812 226.835938 209.242188 C 232.332031 210.121094 235.667969 214.183594 235.792969 219.765625 C 235.867188 223.332031 235.363281 227 234.542969 230.484375 C 230.84375 246.191406 228.855469 262.027344 230.074219 278.1875 C 231.523438 297.421875 236.359375 315.660156 245.59375 332.699219 C 248.003906 337.152344 250.035156 341.875 251.679688 346.667969 C 255.132812 356.738281 254.03125 366.746094 250.316406 376.558594 C 245.828125 388.421875 239.332031 398.867188 228.507812 405.964844 C 220.191406 411.421875 211.058594 413.546875 201.15625 411.394531 C 185.910156 408.082031 177.816406 395.816406 181.101562 380.570312 C 182.851562 372.445312 185.253906 364.464844 187.035156 356.347656 C 188.292969 350.617188 188.890625 344.765625 187.425781 338.925781 C 187.277344 338.328125 187.160156 337.714844 186.925781 337.148438 C 185.945312 334.765625 184.605469 332.730469 181.699219 332.589844 C 179.25 332.472656 176.980469 334 176.273438 337.085938 C 175.425781 340.800781 175.246094 344.664062 174.773438 348.464844 Z M 172.882812 363.980469 "/><path fill-rule="nonzero" fill="rgb(56.63147%, 67.492676%, 82.067871%)" fill-opacity="1" d="M 419.5 341.414062 C 419.332031 337.957031 419.421875 334.460938 418.929688 331.050781 C 418.28125 326.53125 416.019531 324.253906 412.933594 324.285156 C 409.988281 324.308594 407.664062 326.875 406.84375 331.125 C 405.613281 337.5 406.261719 343.867188 407.003906 350.230469 C 407.742188 356.578125 408.820312 362.910156 409.164062 369.277344 C 409.695312 379.066406 407.328125 387.957031 399.488281 394.652344 C 395.183594 398.335938 390.082031 400.109375 384.5625 400.910156 C 367.09375 403.441406 346.75 391.742188 339.988281 375.390625 C 336.003906 365.746094 336.644531 356.3125 341.363281 347.242188 C 344.667969 340.894531 348.585938 334.867188 352.253906 328.710938 C 361.546875 313.097656 366.253906 296.125 367.625 278.078125 C 368.945312 260.652344 366.804688 243.625 362.492188 226.777344 C 361.980469 224.785156 361.789062 222.660156 361.785156 220.597656 C 361.765625 213.644531 365.671875 209.375 372.574219 208.460938 C 377.46875 207.8125 382.140625 208.878906 386.636719 210.503906 C 403.273438 216.523438 416.507812 226.65625 424.589844 242.765625 C 428.765625 251.089844 430.542969 260.058594 431.503906 269.238281 C 431.855469 272.609375 432.292969 275.980469 432.929688 279.304688 C 433.230469 280.855469 433.832031 282.507812 434.792969 283.71875 C 435.605469 284.738281 437.195312 285.808594 438.335938 285.703125 C 439.460938 285.605469 441.007812 284.238281 441.386719 283.101562 C 442.179688 280.734375 442.496094 278.160156 442.691406 275.648438 C 442.953125 272.351562 442.699219 269.007812 443.039062 265.722656 C 443.773438 258.558594 448.503906 255.507812 455.441406 257.511719 C 461.488281 259.253906 465.902344 263.324219 469.894531 267.890625 C 483.628906 283.605469 494.566406 301.15625 503.75 319.84375 C 514.109375 340.914062 520.8125 363.089844 523.523438 386.414062 C 524.078125 391.207031 524.230469 396.136719 523.796875 400.933594 C 522.667969 413.410156 513.460938 420.382812 501.296875 417.183594 C 488.664062 413.859375 476.230469 409.652344 463.929688 405.21875 C 456.472656 402.535156 451.054688 397.210938 451.042969 388.609375 C 451.035156 384.695312 452.019531 380.664062 453.199219 376.886719 C 455.242188 370.355469 458.011719 364.046875 460.054688 357.511719 C 461.714844 352.199219 462.417969 346.640625 461.375 341.066406 C 461.042969 339.292969 460.460938 337.4375 459.496094 335.9375 C 457.964844 333.550781 455.011719 333.484375 453.570312 335.90625 C 452.390625 337.894531 451.84375 340.296875 451.242188 342.574219 C 449.945312 347.480469 449.070312 352.515625 447.496094 357.324219 C 446.273438 361.046875 444.179688 364.445312 440.933594 366.9375 C 435.136719 371.394531 428.453125 370.476562 424.15625 364.539062 C 420.828125 359.929688 419.792969 354.558594 419.363281 349.054688 C 419.167969 346.527344 419.339844 343.96875 419.347656 341.425781 Z M 419.5 341.414062 "/><path fill-rule="nonzero" fill="rgb(26.460266%, 32.035828%, 67.474365%)" fill-opacity="1" d="M 174.933594 484.992188 C 174.820312 484.949219 174.707031 484.902344 174.59375 484.859375 C 174.402344 483.101562 174.359375 481.316406 174.003906 479.59375 C 171.949219 469.710938 166.972656 462.226562 156.761719 459.308594 C 147.078125 456.542969 137.789062 461.726562 136.175781 470.667969 C 134.257812 481.320312 140.539062 495.414062 149.765625 501.144531 C 158.550781 506.605469 168.824219 503.417969 172.664062 493.847656 C 173.785156 491.042969 174.199219 487.949219 174.933594 484.992188 M 230.472656 485.988281 C 230.144531 497.070312 228.054688 507.640625 222.425781 517.289062 C 214.152344 531.464844 201.769531 539.605469 185.582031 541.992188 C 182.761719 542.40625 179.902344 542.523438 177.074219 542.894531 C 175.328125 543.128906 173.527344 543.363281 171.894531 543.980469 C 166.988281 545.828125 165.699219 550.636719 169.476562 554.238281 C 171.980469 556.625 175.160156 558.449219 178.296875 559.996094 C 184.101562 562.851562 190.253906 565.015625 195.976562 568.011719 C 212.058594 576.425781 220.335938 594.3125 216.695312 612.097656 C 214.222656 624.1875 205.503906 629.777344 193.464844 626.929688 C 185.863281 625.136719 179.085938 621.472656 172.527344 617.390625 C 153.191406 605.355469 136.890625 589.972656 122.710938 572.238281 C 103.015625 547.605469 89.039062 520 79.839844 489.914062 C 77.035156 480.742188 74.867188 471.460938 75.425781 461.738281 C 76.113281 449.859375 81.246094 440.339844 91.480469 434.40625 C 112.398438 422.269531 134.808594 414.6875 159.316406 415.183594 C 176.996094 415.535156 193.253906 420.503906 206.800781 432.363281 C 219.164062 443.1875 226.34375 457.007812 229.085938 473.132812 C 229.808594 477.375 230.023438 481.699219 230.472656 485.988281 "/><path fill-rule="nonzero" fill="rgb(87.426758%, 31.027222%, 20.61615%)" fill-opacity="1" d="M 321.308594 552.554688 C 321.390625 546.214844 320.335938 540.089844 317.460938 534.410156 C 313.742188 527.074219 308.050781 522.222656 299.585938 521.511719 C 291.316406 520.816406 284.546875 524.054688 280.367188 531.085938 C 272.199219 544.824219 271.808594 559.097656 279.964844 572.953125 C 287.371094 585.539062 305.351562 586.332031 314.375 574.847656 C 319.511719 568.316406 321.230469 560.675781 321.308594 552.554688 M 297.269531 480.410156 C 314.820312 480.6875 328.621094 482.582031 341.792969 488.089844 C 359.984375 495.695312 372.195312 509.03125 378.371094 527.488281 C 387.109375 553.613281 386.074219 579.609375 374.535156 604.730469 C 364.441406 626.703125 346.882812 639.980469 323.59375 645.679688 C 305.609375 650.082031 287.636719 649.710938 269.996094 643.847656 C 250.6875 637.429688 236.710938 624.667969 229.003906 605.972656 C 217.578125 578.269531 217.195312 550.105469 228.578125 522.214844 C 238.058594 498.984375 256.117188 486.316406 280.425781 482.160156 C 287.085938 481.019531 293.894531 480.746094 297.269531 480.410156 "/><path fill-rule="nonzero" fill="rgb(78.251648%, 69.300842%, 86.99646%)" fill-opacity="1" d="M 465.949219 475.671875 C 465.933594 462.683594 458.011719 454.40625 445.683594 453.851562 C 436.90625 453.457031 430.242188 458.183594 428.59375 466.515625 C 426.785156 475.648438 428.390625 484.375 433.539062 492.15625 C 439.335938 500.917969 451.261719 501.738281 458.539062 494.140625 C 463.660156 488.796875 465.75 482.269531 465.949219 475.671875 M 521.085938 462.6875 C 520.589844 477.816406 517.464844 490.167969 512.890625 502.191406 C 508.234375 514.441406 502.324219 526.003906 493.453125 535.8125 C 489.121094 540.609375 484.144531 544.597656 477.933594 546.773438 C 472.796875 548.570312 467.652344 548.578125 462.546875 546.65625 C 461.035156 546.085938 459.582031 545.367188 458.089844 544.742188 C 454.019531 543.039062 450.976562 545.058594 451.355469 549.425781 C 451.550781 551.699219 452.230469 553.953125 452.890625 556.15625 C 454.679688 562.09375 456.058594 568.0625 455.515625 574.34375 C 454.929688 581.09375 452.558594 587.195312 448.136719 592.230469 C 435.679688 606.421875 420.722656 617.234375 402.992188 623.871094 C 399.59375 625.144531 395.539062 625.574219 391.925781 625.171875 C 385.148438 624.417969 381.339844 619.046875 382.398438 612.304688 C 383.089844 607.921875 384.214844 603.566406 385.558594 599.328125 C 391.1875 581.558594 392.488281 563.417969 390.78125 544.941406 C 389.039062 526.117188 383.828125 508.074219 378.945312 489.925781 C 376.429688 480.570312 374.171875 471.101562 372.613281 461.546875 C 370.722656 449.945312 372.765625 438.925781 380.398438 429.503906 C 386.527344 421.9375 394.730469 417.492188 403.84375 414.570312 C 417.585938 410.167969 431.660156 409.457031 445.917969 410.890625 C 464.140625 412.71875 481.421875 417.832031 497.570312 426.425781 C 507.890625 431.917969 516.003906 439.710938 519.203125 451.402344 C 520.390625 455.742188 520.707031 460.320312 521.085938 462.6875 "/><path fill-rule="nonzero" fill="rgb(97.296143%, 81.140137%, 19.63501%)" fill-opacity="1" d="M 301.226562 383.769531 C 301.1875 387.808594 297.351562 391.816406 293.53125 391.8125 C 290.210938 391.808594 286.949219 387.734375 286.988281 383.636719 C 287.027344 379.753906 289.992188 376.832031 293.914062 376.8125 C 298.085938 376.792969 301.265625 379.816406 301.226562 383.769531 M 294.34375 445.425781 C 291.726562 446.234375 288.980469 446.609375 287.5 446.925781 C 280.742188 446.625 275.664062 445.351562 271.910156 441.027344 C 267.253906 435.664062 269.292969 427.679688 275.859375 425.320312 C 278.5625 424.347656 280.976562 424.796875 282.996094 426.988281 C 287.171875 431.503906 291.386719 435.988281 295.578125 440.492188 C 297.648438 442.714844 297.292969 444.519531 294.34375 445.425781 M 354.761719 445.589844 C 352.832031 445.066406 350.863281 444.617188 349.011719 443.882812 C 344.851562 442.226562 344.621094 440.511719 347.761719 437.367188 C 350.585938 434.535156 353.558594 431.769531 355.902344 428.566406 C 360.414062 422.390625 360.027344 415.15625 355.242188 409.332031 C 351.40625 404.667969 346.363281 401.9375 340.4375 401.066406 C 332.980469 399.972656 327.457031 404.128906 326.15625 411.558594 C 325.929688 412.847656 325.960938 414.195312 325.621094 415.453125 C 325.128906 417.289062 324.636719 419.195312 323.730469 420.847656 C 322.496094 423.097656 321.179688 423.230469 319.289062 421.488281 C 316.226562 418.667969 313.246094 415.753906 310.265625 412.847656 C 307.308594 409.960938 307.691406 408.207031 311.1875 406.003906 C 314.820312 403.71875 318.625 401.484375 321.683594 398.539062 C 333.136719 387.515625 331.296875 369.707031 317.703125 361.5 C 303.277344 352.789062 288.035156 352.585938 272.972656 359.582031 C 256.09375 367.421875 252.621094 385.328125 261.085938 397.878906 C 262.765625 400.367188 261.796875 401.832031 258.824219 402.660156 C 255.054688 403.710938 251.152344 404.625 247.691406 406.359375 C 235.339844 412.550781 228.425781 422.582031 228.453125 436.582031 C 228.476562 449.589844 234.65625 459.601562 245.148438 466.945312 C 255.785156 474.382812 267.933594 476.792969 278.507812 476.933594 C 294.457031 477.085938 307.539062 473.558594 317.351562 466.828125 C 319.417969 465.410156 320.777344 465.753906 322.664062 467.144531 C 326.992188 470.339844 331.257812 473.8125 336.042969 476.160156 C 347.925781 481.976562 361.449219 476.050781 365.019531 463.941406 C 367.582031 455.246094 363.496094 447.945312 354.761719 445.589844 "/><path fill-rule="nonzero" fill="rgb(21.243286%, 55.513%, 36.943054%)" fill-opacity="1" d="M 313.894531 285.800781 C 311.035156 291.664062 306.082031 295.078125 299.351562 295.273438 C 292.488281 295.472656 287.144531 292.515625 283.902344 286.527344 C 278.972656 277.417969 278.933594 267.996094 283.765625 258.855469 C 286.980469 252.769531 292.433594 249.738281 299.375 249.976562 C 306.128906 250.207031 311 253.628906 314.164062 259.523438 C 316.53125 263.925781 317.144531 268.71875 317.121094 273.628906 C 317.171875 278.332031 315.710938 282.070312 313.894531 285.800781 M 358.277344 244.75 C 355.742188 231.996094 350.671875 220.308594 341.667969 210.671875 C 331.167969 199.4375 317.960938 194.304688 302.765625 193.351562 C 278.472656 191.824219 257.113281 203.972656 246.320312 225.738281 C 239.386719 239.726562 236.835938 254.644531 236.632812 270.230469 C 236.917969 287.078125 239.382812 303.625 247.089844 318.988281 C 256.605469 337.964844 271.765625 349.019531 293.195312 350.585938 C 308.894531 351.734375 323.25 347.949219 335.285156 337.410156 C 345.007812 328.894531 350.953125 317.867188 354.910156 305.734375 C 361.433594 285.722656 362.367188 265.328125 358.277344 244.75 "/></svg>
+  <h2>Hungry for your <span class="it">next event?</span></h2>
+  <div style="display:flex;gap:10px;flex-wrap:wrap"><a class="btn btn-yellow" href="#events">Plan an event <span class="arr">→</span></a><a class="btn" style="background:rgba(255,255,255,.18);color:#fff" href="#webshop">Order online</a></div>
+</div></div>
+</main>
+
+<footer class="wrap">
+  <div class="f-top">
+    <div><a class="brand" href="#top" aria-label="Mom&amp;Pop, home"><svg xmlns="http://www.w3.org/2000/svg" viewBox="62 180 472 472" role="img" aria-label="Mom&amp;Pop"><path fill-rule="nonzero" fill="rgb(93.466187%, 16.334534%, 20.578003%)" fill-opacity="1" d="M 172.882812 363.980469 C 172.113281 369.453125 170.152344 372.671875 167.898438 374.699219 C 162.816406 379.265625 157.554688 377.84375 152.1875 373.636719 C 147.570312 370.023438 145.339844 364.910156 143.902344 359.511719 C 142.800781 355.367188 142.460938 351.019531 141.648438 346.789062 C 141.277344 344.839844 140.886719 342.777344 139.929688 341.097656 C 139.214844 339.851562 137.519531 338.324219 136.351562 338.398438 C 134.890625 338.492188 132.992188 339.789062 132.238281 341.113281 C 131.175781 342.972656 130.671875 345.304688 130.488281 347.484375 C 129.921875 354.113281 131.117188 360.539062 133.410156 366.761719 C 134.933594 370.882812 136.703125 374.917969 138.042969 379.097656 C 141.652344 390.359375 138.871094 398.453125 128.625 404.277344 C 118.082031 410.265625 106.820312 414.753906 94.800781 416.875 C 91.820312 417.402344 88.59375 417.320312 85.601562 416.800781 C 77.195312 415.347656 72.050781 409.132812 71.46875 400.058594 C 70.882812 390.972656 72.316406 382.058594 74.164062 373.214844 C 82.207031 334.757812 98.804688 300.40625 124.023438 270.289062 C 127.355469 266.3125 131.375 262.816406 135.496094 259.644531 C 137.710938 257.941406 140.746094 257.074219 143.546875 256.417969 C 147.851562 255.414062 151.699219 257.589844 153.074219 261.792969 C 153.898438 264.308594 154.148438 267.0625 154.324219 269.726562 C 154.558594 273.339844 154.367188 276.980469 154.566406 280.597656 C 154.664062 282.339844 154.925781 284.210938 155.683594 285.742188 C 156.289062 286.964844 157.714844 288.488281 158.859375 288.554688 C 160.140625 288.632812 162.148438 287.542969 162.714844 286.402344 C 163.953125 283.902344 164.792969 281.101562 165.238281 278.335938 C 166.367188 271.339844 166.679688 264.183594 168.210938 257.289062 C 173.914062 231.679688 190.28125 216.167969 215.210938 209.421875 C 218.855469 208.4375 223.050781 208.632812 226.835938 209.242188 C 232.332031 210.121094 235.667969 214.183594 235.792969 219.765625 C 235.867188 223.332031 235.363281 227 234.542969 230.484375 C 230.84375 246.191406 228.855469 262.027344 230.074219 278.1875 C 231.523438 297.421875 236.359375 315.660156 245.59375 332.699219 C 248.003906 337.152344 250.035156 341.875 251.679688 346.667969 C 255.132812 356.738281 254.03125 366.746094 250.316406 376.558594 C 245.828125 388.421875 239.332031 398.867188 228.507812 405.964844 C 220.191406 411.421875 211.058594 413.546875 201.15625 411.394531 C 185.910156 408.082031 177.816406 395.816406 181.101562 380.570312 C 182.851562 372.445312 185.253906 364.464844 187.035156 356.347656 C 188.292969 350.617188 188.890625 344.765625 187.425781 338.925781 C 187.277344 338.328125 187.160156 337.714844 186.925781 337.148438 C 185.945312 334.765625 184.605469 332.730469 181.699219 332.589844 C 179.25 332.472656 176.980469 334 176.273438 337.085938 C 175.425781 340.800781 175.246094 344.664062 174.773438 348.464844 Z M 172.882812 363.980469 "/><path fill-rule="nonzero" fill="rgb(56.63147%, 67.492676%, 82.067871%)" fill-opacity="1" d="M 419.5 341.414062 C 419.332031 337.957031 419.421875 334.460938 418.929688 331.050781 C 418.28125 326.53125 416.019531 324.253906 412.933594 324.285156 C 409.988281 324.308594 407.664062 326.875 406.84375 331.125 C 405.613281 337.5 406.261719 343.867188 407.003906 350.230469 C 407.742188 356.578125 408.820312 362.910156 409.164062 369.277344 C 409.695312 379.066406 407.328125 387.957031 399.488281 394.652344 C 395.183594 398.335938 390.082031 400.109375 384.5625 400.910156 C 367.09375 403.441406 346.75 391.742188 339.988281 375.390625 C 336.003906 365.746094 336.644531 356.3125 341.363281 347.242188 C 344.667969 340.894531 348.585938 334.867188 352.253906 328.710938 C 361.546875 313.097656 366.253906 296.125 367.625 278.078125 C 368.945312 260.652344 366.804688 243.625 362.492188 226.777344 C 361.980469 224.785156 361.789062 222.660156 361.785156 220.597656 C 361.765625 213.644531 365.671875 209.375 372.574219 208.460938 C 377.46875 207.8125 382.140625 208.878906 386.636719 210.503906 C 403.273438 216.523438 416.507812 226.65625 424.589844 242.765625 C 428.765625 251.089844 430.542969 260.058594 431.503906 269.238281 C 431.855469 272.609375 432.292969 275.980469 432.929688 279.304688 C 433.230469 280.855469 433.832031 282.507812 434.792969 283.71875 C 435.605469 284.738281 437.195312 285.808594 438.335938 285.703125 C 439.460938 285.605469 441.007812 284.238281 441.386719 283.101562 C 442.179688 280.734375 442.496094 278.160156 442.691406 275.648438 C 442.953125 272.351562 442.699219 269.007812 443.039062 265.722656 C 443.773438 258.558594 448.503906 255.507812 455.441406 257.511719 C 461.488281 259.253906 465.902344 263.324219 469.894531 267.890625 C 483.628906 283.605469 494.566406 301.15625 503.75 319.84375 C 514.109375 340.914062 520.8125 363.089844 523.523438 386.414062 C 524.078125 391.207031 524.230469 396.136719 523.796875 400.933594 C 522.667969 413.410156 513.460938 420.382812 501.296875 417.183594 C 488.664062 413.859375 476.230469 409.652344 463.929688 405.21875 C 456.472656 402.535156 451.054688 397.210938 451.042969 388.609375 C 451.035156 384.695312 452.019531 380.664062 453.199219 376.886719 C 455.242188 370.355469 458.011719 364.046875 460.054688 357.511719 C 461.714844 352.199219 462.417969 346.640625 461.375 341.066406 C 461.042969 339.292969 460.460938 337.4375 459.496094 335.9375 C 457.964844 333.550781 455.011719 333.484375 453.570312 335.90625 C 452.390625 337.894531 451.84375 340.296875 451.242188 342.574219 C 449.945312 347.480469 449.070312 352.515625 447.496094 357.324219 C 446.273438 361.046875 444.179688 364.445312 440.933594 366.9375 C 435.136719 371.394531 428.453125 370.476562 424.15625 364.539062 C 420.828125 359.929688 419.792969 354.558594 419.363281 349.054688 C 419.167969 346.527344 419.339844 343.96875 419.347656 341.425781 Z M 419.5 341.414062 "/><path fill-rule="nonzero" fill="rgb(26.460266%, 32.035828%, 67.474365%)" fill-opacity="1" d="M 174.933594 484.992188 C 174.820312 484.949219 174.707031 484.902344 174.59375 484.859375 C 174.402344 483.101562 174.359375 481.316406 174.003906 479.59375 C 171.949219 469.710938 166.972656 462.226562 156.761719 459.308594 C 147.078125 456.542969 137.789062 461.726562 136.175781 470.667969 C 134.257812 481.320312 140.539062 495.414062 149.765625 501.144531 C 158.550781 506.605469 168.824219 503.417969 172.664062 493.847656 C 173.785156 491.042969 174.199219 487.949219 174.933594 484.992188 M 230.472656 485.988281 C 230.144531 497.070312 228.054688 507.640625 222.425781 517.289062 C 214.152344 531.464844 201.769531 539.605469 185.582031 541.992188 C 182.761719 542.40625 179.902344 542.523438 177.074219 542.894531 C 175.328125 543.128906 173.527344 543.363281 171.894531 543.980469 C 166.988281 545.828125 165.699219 550.636719 169.476562 554.238281 C 171.980469 556.625 175.160156 558.449219 178.296875 559.996094 C 184.101562 562.851562 190.253906 565.015625 195.976562 568.011719 C 212.058594 576.425781 220.335938 594.3125 216.695312 612.097656 C 214.222656 624.1875 205.503906 629.777344 193.464844 626.929688 C 185.863281 625.136719 179.085938 621.472656 172.527344 617.390625 C 153.191406 605.355469 136.890625 589.972656 122.710938 572.238281 C 103.015625 547.605469 89.039062 520 79.839844 489.914062 C 77.035156 480.742188 74.867188 471.460938 75.425781 461.738281 C 76.113281 449.859375 81.246094 440.339844 91.480469 434.40625 C 112.398438 422.269531 134.808594 414.6875 159.316406 415.183594 C 176.996094 415.535156 193.253906 420.503906 206.800781 432.363281 C 219.164062 443.1875 226.34375 457.007812 229.085938 473.132812 C 229.808594 477.375 230.023438 481.699219 230.472656 485.988281 "/><path fill-rule="nonzero" fill="rgb(87.426758%, 31.027222%, 20.61615%)" fill-opacity="1" d="M 321.308594 552.554688 C 321.390625 546.214844 320.335938 540.089844 317.460938 534.410156 C 313.742188 527.074219 308.050781 522.222656 299.585938 521.511719 C 291.316406 520.816406 284.546875 524.054688 280.367188 531.085938 C 272.199219 544.824219 271.808594 559.097656 279.964844 572.953125 C 287.371094 585.539062 305.351562 586.332031 314.375 574.847656 C 319.511719 568.316406 321.230469 560.675781 321.308594 552.554688 M 297.269531 480.410156 C 314.820312 480.6875 328.621094 482.582031 341.792969 488.089844 C 359.984375 495.695312 372.195312 509.03125 378.371094 527.488281 C 387.109375 553.613281 386.074219 579.609375 374.535156 604.730469 C 364.441406 626.703125 346.882812 639.980469 323.59375 645.679688 C 305.609375 650.082031 287.636719 649.710938 269.996094 643.847656 C 250.6875 637.429688 236.710938 624.667969 229.003906 605.972656 C 217.578125 578.269531 217.195312 550.105469 228.578125 522.214844 C 238.058594 498.984375 256.117188 486.316406 280.425781 482.160156 C 287.085938 481.019531 293.894531 480.746094 297.269531 480.410156 "/><path fill-rule="nonzero" fill="rgb(78.251648%, 69.300842%, 86.99646%)" fill-opacity="1" d="M 465.949219 475.671875 C 465.933594 462.683594 458.011719 454.40625 445.683594 453.851562 C 436.90625 453.457031 430.242188 458.183594 428.59375 466.515625 C 426.785156 475.648438 428.390625 484.375 433.539062 492.15625 C 439.335938 500.917969 451.261719 501.738281 458.539062 494.140625 C 463.660156 488.796875 465.75 482.269531 465.949219 475.671875 M 521.085938 462.6875 C 520.589844 477.816406 517.464844 490.167969 512.890625 502.191406 C 508.234375 514.441406 502.324219 526.003906 493.453125 535.8125 C 489.121094 540.609375 484.144531 544.597656 477.933594 546.773438 C 472.796875 548.570312 467.652344 548.578125 462.546875 546.65625 C 461.035156 546.085938 459.582031 545.367188 458.089844 544.742188 C 454.019531 543.039062 450.976562 545.058594 451.355469 549.425781 C 451.550781 551.699219 452.230469 553.953125 452.890625 556.15625 C 454.679688 562.09375 456.058594 568.0625 455.515625 574.34375 C 454.929688 581.09375 452.558594 587.195312 448.136719 592.230469 C 435.679688 606.421875 420.722656 617.234375 402.992188 623.871094 C 399.59375 625.144531 395.539062 625.574219 391.925781 625.171875 C 385.148438 624.417969 381.339844 619.046875 382.398438 612.304688 C 383.089844 607.921875 384.214844 603.566406 385.558594 599.328125 C 391.1875 581.558594 392.488281 563.417969 390.78125 544.941406 C 389.039062 526.117188 383.828125 508.074219 378.945312 489.925781 C 376.429688 480.570312 374.171875 471.101562 372.613281 461.546875 C 370.722656 449.945312 372.765625 438.925781 380.398438 429.503906 C 386.527344 421.9375 394.730469 417.492188 403.84375 414.570312 C 417.585938 410.167969 431.660156 409.457031 445.917969 410.890625 C 464.140625 412.71875 481.421875 417.832031 497.570312 426.425781 C 507.890625 431.917969 516.003906 439.710938 519.203125 451.402344 C 520.390625 455.742188 520.707031 460.320312 521.085938 462.6875 "/><path fill-rule="nonzero" fill="rgb(97.296143%, 81.140137%, 19.63501%)" fill-opacity="1" d="M 301.226562 383.769531 C 301.1875 387.808594 297.351562 391.816406 293.53125 391.8125 C 290.210938 391.808594 286.949219 387.734375 286.988281 383.636719 C 287.027344 379.753906 289.992188 376.832031 293.914062 376.8125 C 298.085938 376.792969 301.265625 379.816406 301.226562 383.769531 M 294.34375 445.425781 C 291.726562 446.234375 288.980469 446.609375 287.5 446.925781 C 280.742188 446.625 275.664062 445.351562 271.910156 441.027344 C 267.253906 435.664062 269.292969 427.679688 275.859375 425.320312 C 278.5625 424.347656 280.976562 424.796875 282.996094 426.988281 C 287.171875 431.503906 291.386719 435.988281 295.578125 440.492188 C 297.648438 442.714844 297.292969 444.519531 294.34375 445.425781 M 354.761719 445.589844 C 352.832031 445.066406 350.863281 444.617188 349.011719 443.882812 C 344.851562 442.226562 344.621094 440.511719 347.761719 437.367188 C 350.585938 434.535156 353.558594 431.769531 355.902344 428.566406 C 360.414062 422.390625 360.027344 415.15625 355.242188 409.332031 C 351.40625 404.667969 346.363281 401.9375 340.4375 401.066406 C 332.980469 399.972656 327.457031 404.128906 326.15625 411.558594 C 325.929688 412.847656 325.960938 414.195312 325.621094 415.453125 C 325.128906 417.289062 324.636719 419.195312 323.730469 420.847656 C 322.496094 423.097656 321.179688 423.230469 319.289062 421.488281 C 316.226562 418.667969 313.246094 415.753906 310.265625 412.847656 C 307.308594 409.960938 307.691406 408.207031 311.1875 406.003906 C 314.820312 403.71875 318.625 401.484375 321.683594 398.539062 C 333.136719 387.515625 331.296875 369.707031 317.703125 361.5 C 303.277344 352.789062 288.035156 352.585938 272.972656 359.582031 C 256.09375 367.421875 252.621094 385.328125 261.085938 397.878906 C 262.765625 400.367188 261.796875 401.832031 258.824219 402.660156 C 255.054688 403.710938 251.152344 404.625 247.691406 406.359375 C 235.339844 412.550781 228.425781 422.582031 228.453125 436.582031 C 228.476562 449.589844 234.65625 459.601562 245.148438 466.945312 C 255.785156 474.382812 267.933594 476.792969 278.507812 476.933594 C 294.457031 477.085938 307.539062 473.558594 317.351562 466.828125 C 319.417969 465.410156 320.777344 465.753906 322.664062 467.144531 C 326.992188 470.339844 331.257812 473.8125 336.042969 476.160156 C 347.925781 481.976562 361.449219 476.050781 365.019531 463.941406 C 367.582031 455.246094 363.496094 447.945312 354.761719 445.589844 "/><path fill-rule="nonzero" fill="rgb(21.243286%, 55.513%, 36.943054%)" fill-opacity="1" d="M 313.894531 285.800781 C 311.035156 291.664062 306.082031 295.078125 299.351562 295.273438 C 292.488281 295.472656 287.144531 292.515625 283.902344 286.527344 C 278.972656 277.417969 278.933594 267.996094 283.765625 258.855469 C 286.980469 252.769531 292.433594 249.738281 299.375 249.976562 C 306.128906 250.207031 311 253.628906 314.164062 259.523438 C 316.53125 263.925781 317.144531 268.71875 317.121094 273.628906 C 317.171875 278.332031 315.710938 282.070312 313.894531 285.800781 M 358.277344 244.75 C 355.742188 231.996094 350.671875 220.308594 341.667969 210.671875 C 331.167969 199.4375 317.960938 194.304688 302.765625 193.351562 C 278.472656 191.824219 257.113281 203.972656 246.320312 225.738281 C 239.386719 239.726562 236.835938 254.644531 236.632812 270.230469 C 236.917969 287.078125 239.382812 303.625 247.089844 318.988281 C 256.605469 337.964844 271.765625 349.019531 293.195312 350.585938 C 308.894531 351.734375 323.25 347.949219 335.285156 337.410156 C 345.007812 328.894531 350.953125 317.867188 354.910156 305.734375 C 361.433594 285.722656 362.367188 265.328125 358.277344 244.75 "/></svg></a><p>Fresh, healthy and delicious food across Belgium. Present in 35 locations.</p></div>
+    <div class="f-col"><b>Discover</b><a href="#about">About us</a><a href="#webshop">Webshop</a><a href="#events">Events</a><a href="#contact">Contact</a></div>
+    <div class="f-col"><b>Events</b><a href="#events">Corporate</a><a href="#events">Private</a><a href="#events">How it works</a></div>
+    <div class="f-col"><b>Follow us</b><a href="https://www.instagram.com">Instagram</a><a href="https://www.linkedin.com">LinkedIn</a><a href="https://www.facebook.com">Facebook</a></div>
+  </div>
+  <div class="f-bot"><span>© 2026 Mom&amp;Pop. All rights reserved.</span><span>Made in Belgium</span></div>
+</footer>
+
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+<script>
+const I18N={
+"About us":["À propos","Over ons"],
+"Webshop":["Webshop","Webshop"],
+"Events":["Événements","Evenementen"],
+"Contact":["Contact","Contact"],
+"Order":["Commander","Bestellen"],
+"Good, simple and above all <em>Yummy.</em>":["Bon, simple et surtout <em>Yummy.</em>","Lekker, eenvoudig en vooral <em>Yummy.</em>"],
+"Fresh, seasonal food across Belgium for your office lunch, your team event or your family party. Order online or let us cater the whole day.":["Une cuisine fraîche et de saison, partout en Belgique, pour vos lunchs au bureau, vos événements d'équipe ou vos fêtes de famille. Commandez en ligne ou confiez-nous toute la journée.","Vers, seizoensgebonden eten in heel België voor je kantoorlunch, teamevent of familiefeest. Bestel online of laat ons de hele dag verzorgen."],
+"Order online":["Commander en ligne","Online bestellen"],
+"Plan an event":["Organiser un événement","Een event plannen"],
+"Who are <span class=\"it\">we?</span>":["Qui <span class=\"it\">sommes-nous ?</span>","Wie <span class=\"it\">zijn wij?</span>"],
+"<b>Mom&amp;Pop</b> is a Belgian food concept creating warm and vibrant places centred around fresh, healthy and, above all, delicious food.":["<b>Mom&amp;Pop</b> est un concept food belge qui crée des lieux chaleureux et vivants, autour d'une cuisine fraîche, saine et surtout délicieuse.","<b>Mom&amp;Pop</b> is een Belgisch foodconcept dat warme en levendige plekken creëert rond vers, gezond en vooral heerlijk eten."],
+"Our ambition is simple: create places where people enjoy coming to eat, meet and take a break, with a strong focus on quality, freshness and enjoyment.":["Notre ambition est simple : créer des lieux où l'on aime venir manger, se retrouver et faire une pause, avec une attention particulière à la qualité, à la fraîcheur et au plaisir.","Onze ambitie is eenvoudig: plekken creëren waar mensen graag komen eten, afspreken en even pauzeren, met veel aandacht voor kwaliteit, versheid en genieten."],
+"Because in the end, whether you come for lunch, to work, to catch up with someone or simply to enjoy good food, what matters is the same: it should be good, simple and, above all, <span class=\"yummy\">Yummy</span>.":["Parce qu'au final, que vous veniez pour déjeuner, travailler, retrouver quelqu'un ou simplement bien manger, l'essentiel reste le même : que ce soit bon, simple et surtout <span class=\"yummy\">Yummy</span>.","Want uiteindelijk, of je nu komt lunchen, werken, bijpraten of gewoon lekker eten: wat telt is hetzelfde. Het moet goed zijn, eenvoudig en vooral <span class=\"yummy\">Yummy</span>."],
+"Get in touch":["Nous contacter","Contacteer ons"],
+"<b>locations and counting</b>Each venue built with the same ambition: a simple, warm and delicious experience.":["<b>adresses, et ce n'est qu'un début</b>Chaque lieu porte la même ambition : une expérience simple, chaleureuse et délicieuse.","<b>locaties, en dat worden er meer</b>Elke zaak met dezelfde ambitie: een eenvoudige, warme en heerlijke ervaring."],
+"Our approach":["Notre approche","Onze aanpak"],
+"We believe a good meal can truly make a difference to your day. That's why we prioritise fresh, high-quality ingredients, with particular attention to local and seasonal produce.":["Nous croyons qu'un bon repas peut vraiment changer une journée. C'est pourquoi nous privilégions des ingrédients frais et de qualité, avec une attention particulière aux produits locaux et de saison.","Wij geloven dat een goede maaltijd echt een verschil kan maken in je dag. Daarom kiezen we voor verse ingrediënten van hoge kwaliteit, met bijzondere aandacht voor lokale en seizoensproducten."],
+"Menus that are varied, generous and balanced, with options for every taste and every craving.":["Des menus variés, généreux et équilibrés, avec des options pour tous les goûts et toutes les envies.","Gevarieerde, royale en evenwichtige menu's, met opties voor elke smaak en elke goesting."],
+"Our restaurants":["Nos restaurants","Onze restaurants"],
+"Above all, places where people feel good. Relaxed and welcoming spaces to take a break, share a meal or simply enjoy a good moment.":["Avant tout, des lieux où l'on se sent bien. Des espaces détendus et accueillants pour faire une pause, partager un repas ou simplement profiter d'un bon moment.","Vooral plekken waar mensen zich goed voelen. Ontspannen en gastvrije ruimtes om even te pauzeren, een maaltijd te delen of gewoon te genieten."],
+"Vegetarian":["Végétarien","Vegetarisch"],
+"Vegan":["Vegan","Vegan"],
+"Gluten-free":["Sans gluten","Glutenvrij"],
+"Our commitment to sustainability":["Notre engagement durable","Ons engagement voor duurzaamheid"],
+"Environmental responsibility is at the heart of our philosophy: eco-friendly packaging, minimal food waste and support for sustainable agricultural practices.":["La responsabilité environnementale est au cœur de notre philosophie : emballages écologiques, gaspillage alimentaire réduit au minimum et soutien à une agriculture durable.","Milieuverantwoordelijkheid staat centraal in onze filosofie: ecologische verpakkingen, zo weinig mogelijk voedselverspilling en steun aan duurzame landbouw."],
+"We also encourage our teams and customers to adopt more environmentally friendly eating habits.":["Nous encourageons aussi nos équipes et nos clients à adopter des habitudes alimentaires plus respectueuses de l'environnement.","We moedigen ook onze teams en klanten aan om milieuvriendelijker te eten."],
+"Order for the office, delivered <span class=\"it\">fresh</span>":["Pour le bureau, livré <span class=\"it\">frais</span>","Voor op kantoor, <span class=\"it\">vers</span> geleverd"],
+"Order by 2 pm for next-day delivery across Belgium. Minimum order of 10 portions.":["Commandez avant 14h pour une livraison le lendemain partout en Belgique. Minimum 10 portions.","Bestel voor 14u voor levering de volgende dag in heel België. Minimum 10 porties."],
+"All":["Tout","Alles"],
+"Breakfast":["Petit-déjeuner","Ontbijt"],
+"Lunch":["Lunch","Lunch"],
+"Sweet":["Sucré","Zoet"],
+"Fit for you":["Fit for you","Fit for you"],
+"<b>Free delivery</b> from €250 across Belgium.":["<b>Livraison gratuite</b> dès 250 € partout en Belgique.","<b>Gratis levering</b> vanaf € 250 in heel België."],
+"Prices excl. VAT · Allergen list on every box":["Prix HTVA · Liste des allergènes sur chaque box","Prijzen excl. btw · Allergenenlijst bij elke box"],
+"Your event, catered the <span class=\"it\">Mom&amp;Pop way</span>":["Votre événement, à la <span class=\"it\">façon Mom&amp;Pop</span>","Jouw event, op z'n <span class=\"it\">Mom&amp;Pop's</span>"],
+"From a breakfast meeting for twelve to a wedding for three hundred, our kitchens prepare, deliver and serve fresh food that people remember.":["Du petit-déjeuner de réunion pour douze au mariage pour trois cents, nos cuisines préparent, livrent et servent une cuisine fraîche qui marque les esprits.","Van een ontbijtvergadering voor twaalf tot een huwelijk voor driehonderd: onze keukens bereiden, leveren en serveren vers eten dat bijblijft."],
+"Corporate":["Entreprise","Zakelijk"],
+"Private":["Privé","Privé"],
+"Corporate events":["Événements d'entreprise","Zakelijke events"],
+"Feed your team well, from the first coffee to the closing drink. We handle the food so you can focus on your people.":["Régalez votre équipe, du premier café au drink de clôture. Nous gérons la nourriture, vous vous concentrez sur vos invités.","Verwen je team, van de eerste koffie tot de afsluitende drink. Wij zorgen voor het eten, jij voor je mensen."],
+"Team building":["Team building","Teambuilding"],
+"Meetings":["Réunions","Vergaderingen"],
+"Conferences":["Conférences","Conferenties"],
+"Open house":["Portes ouvertes","Opendeurdag"],
+"Inaugurations":["Inaugurations","Inhuldigingen"],
+"Business lunch":["Lunch d'affaires","Zakenlunch"],
+"Plan a corporate event":["Organiser un événement pro","Een zakelijk event plannen"],
+"from 10 guests":["dès 10 personnes","vanaf 10 gasten"],
+"from 12 guests":["dès 12 personnes","vanaf 12 gasten"],
+"from 20 guests":["dès 20 personnes","vanaf 20 gasten"],
+"from 30 guests":["dès 30 personnes","vanaf 30 gasten"],
+"from 40 guests":["dès 40 personnes","vanaf 40 gasten"],
+"Breakfast boxes":["Box petit-déjeuner","Ontbijtboxen"],
+"Granola, fresh fruit, viennoiseries and juices, packed per person.":["Granola, fruits frais, viennoiseries et jus, emballés par personne.","Granola, vers fruit, koffiekoeken en sap, per persoon verpakt."],
+"Lunch &amp; sandwich boxes":["Box lunch &amp; sandwichs","Lunch- &amp; sandwichboxen"],
+"Seasonal salads, bowls and sandwiches, with a balanced choice for everyone.":["Salades de saison, bowls et sandwichs, avec un choix équilibré pour chacun.","Seizoenssalades, bowls en sandwiches, met een evenwichtige keuze voor iedereen."],
+"Cold buffet":["Buffet froid","Koud buffet"],
+"Generous shared platters set up on site, ready when your meeting breaks.":["De généreux plateaux à partager installés sur place, prêts à la pause.","Royale deelschotels ter plaatse opgesteld, klaar als je vergadering pauzeert."],
+"Walking dinner":["Walking dinner","Walking dinner"],
+"Hot and cold bites served by our staff, ideal for launches and receptions.":["Bouchées chaudes et froides servies par notre équipe, idéal pour les lancements et réceptions.","Warme en koude hapjes geserveerd door ons team, ideaal voor lanceringen en recepties."],
+"Private events":["Événements privés","Privé-events"],
+"Celebrate with the people you love and leave the cooking to us. Menus shaped around your guests, your tastes and your budget.":["Faites la fête avec ceux que vous aimez et laissez-nous la cuisine. Des menus pensés pour vos invités, vos goûts et votre budget.","Vier met wie je graag ziet en laat het koken aan ons. Menu's op maat van je gasten, je smaak en je budget."],
+"Weddings":["Mariages","Huwelijken"],
+"Birthdays":["Anniversaires","Verjaardagen"],
+"Seated dinners":["Dîners assis","Zittende diners"],
+"Family gatherings":["Réunions de famille","Familiefeesten"],
+"Themed parties":["Soirées à thème","Themafeesten"],
+"Cocktails":["Cocktails","Cocktails"],
+"Plan a private event":["Organiser un événement privé","Een privé-event plannen"],
+"Brunch":["Brunch","Brunch"],
+"Sweet and savoury spread for long weekend celebrations.":["Sucré et salé pour les longues célébrations du week-end.","Zoet en hartig voor lange weekendfeesten."],
+"Cocktail &amp; bites":["Cocktail &amp; bouchées","Cocktail &amp; hapjes"],
+"Finger food in small bites, passed around by our team.":["Finger food en petites bouchées, servies par notre équipe.","Fingerfood in kleine hapjes, rondgebracht door ons team."],
+"Family-style buffet":["Buffet familial","Buffet in familiestijl"],
+"Big platters to share, the way Mom &amp; Pop would serve it.":["De grands plats à partager, comme Mom &amp; Pop les serviraient.","Grote schotels om te delen, zoals Mom &amp; Pop het zouden serveren."],
+"Seated dinner":["Dîner assis","Zittend diner"],
+"Three courses served at the table, with or without staff.":["Trois services à table, avec ou sans personnel.","Drie gangen aan tafel geserveerd, met of zonder personeel."],
+"How it works":["Comment ça marche","Zo werkt het"],
+"Four steps to a <span class=\"it\">well-fed</span> event":["Quatre étapes pour un événement <span class=\"it\">bien nourri</span>","Vier stappen naar een <span class=\"it\">goed gevuld</span> event"],
+"Tell us what you're planning. We send a first proposal within 48 hours.":["Parlez-nous de votre projet. Nous envoyons une première proposition sous 48 heures.","Vertel ons wat je plant. Binnen 48 uur sturen we een eerste voorstel."],
+"Tell us about it":["Racontez-nous","Vertel het ons"],
+"Date, place, number of guests and the mood you're after.":["La date, le lieu, le nombre d'invités et l'ambiance recherchée.","Datum, locatie, aantal gasten en de sfeer die je zoekt."],
+"Get your proposal":["Recevez votre proposition","Ontvang je voorstel"],
+"A tailored menu and quote within 48 hours, dietary needs included.":["Un menu et un devis sur mesure sous 48 heures, régimes particuliers compris.","Een menu en offerte op maat binnen 48 uur, dieetwensen inbegrepen."],
+"Taste and fine-tune":["Goûtez et ajustez","Proeven en bijsturen"],
+"For events over 80 guests, we invite you to a tasting in one of our restaurants.":["Pour les événements de plus de 80 personnes, nous vous invitons à une dégustation dans l'un de nos restaurants.","Voor events met meer dan 80 gasten nodigen we je uit voor een proeverij in een van onze restaurants."],
+"Enjoy the day":["Profitez du jour J","Geniet van de dag"],
+"We deliver, set up, serve and clear away. You look after your guests.":["Nous livrons, installons, servons et débarrassons. Vous vous occupez de vos invités.","Wij leveren, zetten klaar, serveren en ruimen op. Jij zorgt voor je gasten."],
+"Everything <span class=\"it\">included</span>, so you don't have to think about it":["Tout est <span class=\"it\">inclus</span>, pour que vous n'ayez à penser à rien","Alles <span class=\"it\">inbegrepen</span>, zodat jij nergens aan hoeft te denken"],
+"Delivery, setup and clearing":["Livraison, installation et débarrassage","Levering, opstelling en opruimen"],
+"Serving staff on request":["Personnel de service sur demande","Bedienend personeel op aanvraag"],
+"Crockery, glassware and linen":["Vaisselle, verrerie et nappage","Servies, glaswerk en linnen"],
+"Vegetarian, vegan and gluten-free options":["Options végétariennes, vegan et sans gluten","Vegetarische, vegan en glutenvrije opties"],
+"Eco-friendly packaging":["Emballages écologiques","Ecologische verpakkingen"],
+"Leftovers donated or packed for you":["Restes donnés ou emballés pour vous","Restjes geschonken of voor jou ingepakt"],
+"FAQ":["FAQ","FAQ"],
+"Good <span class=\"it\">questions</span>":["Bonnes <span class=\"it\">questions</span>","Goede <span class=\"it\">vragen</span>"],
+"Can't find your answer? Send us a message and we reply within one working day.":["Vous ne trouvez pas votre réponse ? Envoyez-nous un message, nous répondons sous un jour ouvrable.","Vind je je antwoord niet? Stuur ons een bericht, we antwoorden binnen één werkdag."],
+"How far in advance should I order?":["Combien de temps à l'avance faut-il commander ?","Hoe lang op voorhand moet ik bestellen?"],
+"For the webshop, order before 2 pm for next-day delivery. For events, we recommend two to three weeks ahead, and two months for weddings.":["Pour le webshop, commandez avant 14h pour une livraison le lendemain. Pour les événements, nous conseillons deux à trois semaines à l'avance, et deux mois pour les mariages.","Voor de webshop: bestel voor 14u voor levering de volgende dag. Voor events raden we twee à drie weken op voorhand aan, en twee maanden voor huwelijken."],
+"Do you handle allergies and dietary needs?":["Gérez-vous les allergies et régimes particuliers ?","Houden jullie rekening met allergieën en dieetwensen?"],
+"Yes. Every menu includes vegetarian, vegan and gluten-free options, and each box comes with a full allergen list.":["Oui. Chaque menu comprend des options végétariennes, vegan et sans gluten, et chaque box est accompagnée de la liste complète des allergènes.","Ja. Elk menu bevat vegetarische, vegan en glutenvrije opties, en bij elke box zit een volledige allergenenlijst."],
+"Where do you deliver?":["Où livrez-vous ?","Waar leveren jullie?"],
+"Everywhere in Belgium, close to our 35 locations. Ask us about events abroad.":["Partout en Belgique, au départ de nos 35 adresses. Pour un événement à l'étranger, contactez-nous.","Overal in België, vanuit onze 35 locaties. Voor events in het buitenland, neem contact op."],
+"Can I change my order after confirming?":["Puis-je modifier ma commande après confirmation ?","Kan ik mijn bestelling wijzigen na bevestiging?"],
+"You can adjust quantities up to 48 hours before delivery, free of charge.":["Vous pouvez ajuster les quantités gratuitement jusqu'à 48 heures avant la livraison.","Je kan de hoeveelheden gratis aanpassen tot 48 uur voor levering."],
+"What happens to leftover food?":["Que deviennent les restes ?","Wat gebeurt er met overschotten?"],
+"We pack leftovers for you or donate them to local partners, in line with our commitment to reduce food waste.":["Nous emballons les restes pour vous ou les donnons à des partenaires locaux, dans le cadre de notre engagement contre le gaspillage alimentaire.","We pakken restjes voor je in of schenken ze aan lokale partners, in lijn met ons engagement tegen voedselverspilling."],
+"Let's talk <span class=\"it\">food</span>":["Parlons <span class=\"it\">food</span>","Laten we over <span class=\"it\">eten</span> praten"],
+"Email":["E-mail","E-mail"],
+"Phone":["Téléphone","Telefoon"],
+"Office":["Bureau","Kantoor"],
+"Brussels, Belgium":["Bruxelles, Belgique","Brussel, België"],
+"Opening hours":["Heures d'ouverture","Openingsuren"],
+"Monday – Friday":["Lundi – vendredi","Maandag – vrijdag"],
+"Saturday":["Samedi","Zaterdag"],
+"Sunday":["Dimanche","Zondag"],
+"Closed":["Fermé","Gesloten"],
+"Send us a message":["Envoyez-nous un message","Stuur ons een bericht"],
+"Webshop order":["Commande webshop","Webshopbestelling"],
+"Corporate event":["Événement d'entreprise","Zakelijk event"],
+"Private event":["Événement privé","Privé-event"],
+"Other":["Autre","Andere"],
+"Name":["Nom","Naam"],
+"Company (optional)":["Entreprise (facultatif)","Bedrijf (optioneel)"],
+"Event date":["Date de l'événement","Datum van het event"],
+"Number of guests":["Nombre d'invités","Aantal gasten"],
+"Tell us more":["Dites-nous en plus","Vertel ons meer"],
+"Send message":["Envoyer le message","Bericht versturen"],
+"Hungry for your <span class=\"it\">next event?</span>":["Une petite faim pour votre <span class=\"it\">prochain événement ?</span>","Honger naar je <span class=\"it\">volgende event?</span>"],
+"Fresh, healthy and delicious food across Belgium. Present in 35 locations.":["Une cuisine fraîche, saine et délicieuse, partout en Belgique. Présents dans 35 lieux.","Vers, gezond en heerlijk eten in heel België. Aanwezig op 35 locaties."],
+"Discover":["Découvrir","Ontdek"],
+"Follow us":["Suivez-nous","Volg ons"],
+"© 2026 Mom&amp;Pop. All rights reserved.":["© 2026 Mom&amp;Pop. Tous droits réservés.","© 2026 Mom&amp;Pop. Alle rechten voorbehouden."],
+"Made in Belgium":["Made in Belgium","Made in Belgium"]
+};
+const UI={
+ en:{ph:"Location, timing, dietary needs…",added:n=>`${n} × 10 added to your order`,err:"Please add your name and a valid email address so we can reply.",ok:n=>`Thanks ${n}! This is a design preview, so nothing was sent. On the live site we'd reply within one working day.`,pers:"/ pers.",add:n=>`Add ${n} to order`},
+ fr:{ph:"Lieu, horaire, régimes particuliers…",added:n=>`${n} × 10 ajouté à votre commande`,err:"Indiquez votre nom et une adresse e-mail valide pour que nous puissions vous répondre.",ok:n=>`Merci ${n} ! Ceci est une maquette, rien n'a été envoyé. Sur le vrai site, nous répondrions sous un jour ouvrable.`,pers:"/ pers.",add:n=>`Ajouter ${n} à la commande`},
+ nl:{ph:"Locatie, timing, dieetwensen…",added:n=>`${n} × 10 toegevoegd aan je bestelling`,err:"Vul je naam en een geldig e-mailadres in zodat we kunnen antwoorden.",ok:n=>`Bedankt ${n}! Dit is een ontwerp, er werd niets verstuurd. Op de echte site antwoorden we binnen één werkdag.`,pers:"/ pers.",add:n=>`${n} toevoegen aan bestelling`}
+};
+const PRODUCTS_I18N=[
+ {fr:["Box matin","Croissant, pain au chocolat, granola, fraises fraîches et jus d'orange.","Matin"],nl:["Ochtendbox","Croissant, chocoladebroodje, granola, verse aardbeien en sinaasappelsap.","Ochtend"]},
+ {fr:["Pavlova aux fruits rouges","Coulis de fruits rouges, baies fraîches, crème légère à la vanille et meringue concassée.","Pavlova"],nl:["Pavlova met rood fruit","Coulis van rood fruit, verse bessen, lichte vanilleroom en verbrokkelde meringue.","Pavlova"]},
+ {fr:["Salade bowl de saison","Scampis grillés sur jeunes pousses et légumes croquants, sauce sweet chili.","Salade bowl"],nl:["Seizoenssaladebowl","Gegrilde scampi op jonge slasoorten en knapperige groenten, met sweet chili dressing.","Saladebowl"]},
+ {fr:["Plateau sandwichs","Mini-baguettes multicéréales, wraps et pains briochés, cinq pièces par personne.","Sandwichs"],nl:["Sandwichschotel","Meergranen mini-baguettes, wraps en brioche broodjes, vijf stuks per persoon.","Sandwiches"]},
+ {fr:["Filet de daurade aux épices","Sauce jaune au lait de coco, oignons rouges et fenouil au four, riz au citron.","Fit for you"],nl:["Gekruide zeebrasemfilet","Gele saus met kokosmelk, rode ui en venkel uit de oven, citroenrijst.","Fit for you"]},
+ {fr:["Box lunch vegan","Bowl falafel, houmous, légumes pickles, cookie chocolat noir.","Box vegan"],nl:["Vegan lunchbox","Falafelbowl, hummus, ingelegde groenten, koekje met pure chocolade.","Vegan box"]},
+ {fr:["Plateau sucré","Mini-muffins, macarons et cannelés, un assortiment à partager.","Sucré"],nl:["Zoete schotel","Mini-muffins, macarons en cannelés, een assortiment om te delen.","Zoet"]},
+ {fr:["Moussaka","Couches d'aubergines, de pommes de terre et de viande hachée épicée, gratinées à la béchamel.","Moussaka"],nl:["Moussaka","Laagjes aubergine, aardappel en gekruid gehakt, gegratineerd met bechamel.","Moussaka"]}
+];
+
+</script>
+<script>
+const navEl=document.querySelector(".nav");const onS=()=>navEl.classList.toggle("scrolled",scrollY>40);addEventListener("scroll",onS,{passive:true});onS();
+const products=[
+ {n:"Morning box",cat:"breakfast",d:"Croissant, pain au chocolat, granola, fresh strawberries and orange juice.",p:9.5,c:"var(--green)",tag:["VEG"],short:"Morning",img:"breakfast.jpg"},
+ {n:"Red berry pavlova",cat:"sweet",d:"Red fruit coulis, fresh berries, light vanilla cream and crushed meringue.",p:5.9,c:"var(--blue)",tag:["VEG","GF"],short:"Pavlova",img:"pavlova.jpg"},
+ {n:"Seasonal salad bowl",cat:"lunch",d:"Grilled shrimp on mixed greens and crunchy vegetables, with a sweet chilli dressing.",p:13.5,c:"var(--red)",tag:[],short:"Salad bowl",img:"salad.jpg"},
+ {n:"Sandwich platter",cat:"lunch",d:"Multigrain mini baguettes, wraps and brioche buns, five pieces per person.",p:12.0,c:"var(--lilac)",tag:[],short:"Sandwiches",img:"sandwich.jpg"},
+ {n:"Spiced sea bream fillet",cat:"lunch",d:"Yellow coconut milk sauce, oven-roasted red onions and fennel, lemon rice.",p:17.5,c:"var(--green)",tag:["FIT FOR YOU"],short:"Fit for you",img:"fit-daurade.jpg"},
+ {n:"Vegan lunch box",cat:"lunch",d:"Falafel bowl, hummus, pickled veg, dark chocolate cookie.",p:15.9,c:"var(--blue)",tag:["VEGAN"],short:"Vegan box",img:"lunch.jpg"},
+ {n:"Sweet tray",cat:"sweet",d:"Mini muffins, macarons and cannelés, an assortment for sharing.",p:5.5,c:"var(--red)",tag:["VEG"],short:"Sweets",img:"sweet.jpg"},
+ {n:"Moussaka",cat:"lunch",d:"Layers of aubergine, potato and spiced minced meat, topped with a golden béchamel.",p:15.5,c:"var(--lilac)",tag:[],short:"Moussaka",img:"moussaka.jpg"}
+];
+const fmt=v=>"€"+v.toFixed(2).replace(".",",");
+const grid=document.getElementById("products");
+let LANG="fr",curF="all";
+function renderProducts(){
+ const u=UI[LANG];
+ grid.innerHTML=products.map((p,i)=>{const t=LANG==="en"?[p.n,p.d,p.short]:PRODUCTS_I18N[i][LANG];return `<article class="product" data-cat="${p.cat}">
+ <div class="p-art${/blue|lilac/.test(p.c)?" light":""}" style="--c:${p.c}"><div class="diet">${p.tag.map(t=>`<i>${t}</i>`).join("")}</div>${p.img?`<img class="p-photo" src="${p.img}" alt="${t[0]}">`:`<div class="blob"><span>${t[2]}</span></div>`}</div>
+ <div class="p-body"><div style="display:grid;gap:6px"><h3>${t[0]}</h3><p>${t[1]}</p></div>
+ <div class="p-foot"><span class="price">${fmt(p.p)} <small>${u.pers}</small></span><button class="add" id="add-${i}" aria-label="${u.add(t[0])}">+</button></div></div></article>`}).join("");
+ grid.querySelectorAll(".product").forEach(p=>p.hidden=!(curF==="all"||p.dataset.cat===curF));
+}
+let count=0;const cc=document.getElementById("cartCount"),toast=document.getElementById("toast");let tt;
+function say(m){toast.textContent=m;toast.classList.add("show");clearTimeout(tt);tt=setTimeout(()=>toast.classList.remove("show"),2200)}
+grid.addEventListener("click",e=>{const b=e.target.closest(".add");if(!b)return;const i=+b.id.split("-")[1];const nm=LANG==="en"?products[i].n:PRODUCTS_I18N[i][LANG][0];count+=10;cc.textContent=count;b.classList.add("done");b.textContent="✓";setTimeout(()=>{b.classList.remove("done");b.textContent="+"},1200);say(UI[LANG].added(nm))});
+
+document.querySelectorAll(".filter").forEach(f=>f.addEventListener("click",()=>{
+ document.querySelectorAll(".filter").forEach(x=>x.setAttribute("aria-pressed",x===f));
+ const v=curF=f.dataset.f;grid.querySelectorAll(".product").forEach(p=>p.hidden=!(v==="all"||p.dataset.cat===v));
+}));
+
+const tabs=[["tab-corp","ev-corp"],["tab-priv","ev-priv"]];
+tabs.forEach(([t])=>document.getElementById(t).addEventListener("click",()=>{
+ tabs.forEach(([tt,pp])=>{const on=tt===t;document.getElementById(tt).setAttribute("aria-selected",on);document.getElementById(pp).hidden=!on});
+}));
+
+document.querySelectorAll("[data-subject]").forEach(a=>a.addEventListener("click",()=>{const r=document.getElementById("s-"+a.dataset.subject);if(r)r.checked=true}));
+
+document.getElementById("contactForm").addEventListener("submit",e=>{
+ e.preventDefault();const n=document.getElementById("c-name"),m=document.getElementById("c-email"),o=document.getElementById("formMsg");
+ if(!n.value.trim()||!/^\S+@\S+\.\S+$/.test(m.value)){o.hidden=false;o.textContent=UI[LANG].err;return}
+ o.hidden=false;o.textContent=UI[LANG].ok(n.value.trim().split(" ")[0]);e.target.reset();
+});
+
+const SEL='h1,h2,h3,h4,p,summary,.eyebrow,.links a,.btn,.filter,.ev-tab,.occasions span,.pp,.inc-list li,.tag,.c-row small,.c-row>span,.hours span,.subject label,.field label,.f-col a,.f-col b,.f-bot span,.shop-note span,.cart-lbl';
+const norm=x=>x.replace(/\s+/g," ").trim();
+const NODES=[];
+document.querySelectorAll(SEL).forEach(el=>{
+ if(el.closest(".products,#formMsg,.toast")||el.matches(".cart-btn"))return;
+ if(el.matches(".btn")){const tn=[...el.childNodes].find(n=>n.nodeType===3&&n.data.trim());if(!tn)return;const en=norm(tn.data);if(I18N[en])NODES.push({tn,en,sp:/\s$/.test(tn.data)});return}
+ const en=norm(el.innerHTML);if(I18N[en])NODES.push({el,en});
+});
+function setLang(l){
+ LANG=l;const k=l==="fr"?0:l==="nl"?1:-1;
+ NODES.forEach(n=>{const v=k<0?n.en:I18N[n.en][k];if(n.tn)n.tn.data=v+(n.sp?" ":"");else n.el.innerHTML=v});
+ document.documentElement.lang=l;
+ document.getElementById("c-msg").placeholder=UI[l].ph;
+ document.querySelectorAll(".lang button").forEach(b=>b.setAttribute("aria-pressed",b.dataset.lang===l));
+ document.getElementById("formMsg").hidden=true;
+ renderProducts();
+ try{localStorage.setItem("mnp-lang",l)}catch(e){}
+}
+document.querySelectorAll(".lang button").forEach(b=>b.addEventListener("click",()=>setLang(b.dataset.lang)));
+let start="fr";const h=location.hash.replace("#","");
+if(["fr","nl","en"].includes(h))start=h;else{try{const v=localStorage.getItem("mnp-lang");if(["fr","nl","en"].includes(v))start=v}catch(e){}}
+setLang(start);
+</script>
+
+</body>
+</html>
